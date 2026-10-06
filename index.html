@@ -3,650 +3,669 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hafiz Muhammad Umair Ali — AI/ML Engineer</title>
-<meta name="description" content="AI/ML Engineer — RAG, LoRA fine-tuning, MLOps. National hackathon champion (AI Seekho, Google/Telenor/MoITT). BS Computer Science, DHA Suffa University.">
+<title>Hafiz Muhammad Umair Ali · AI/ML Engineer</title>
+<meta name="description" content="AI/ML engineer in Karachi. QLoRA fine-tuning and RAG for small language models, on-device pose estimation, forecasting pipelines. 1st place, AI Seekho 2026.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hafiz Muhammad Umair Ali — AI/ML Engineer">
-<meta property="og:description" content="AI/ML Engineer — RAG, LoRA fine-tuning, MLOps. National hackathon champion (AI Seekho, Google/Telenor/MoITT).">
-<meta property="og:image" content="https://umair-ali.vercel.app/assets/umair-portrait.jpg">
+<meta property="og:title" content="Hafiz Muhammad Umair Ali · AI/ML Engineer">
+<meta property="og:description" content="QLoRA fine-tuning and RAG for small language models, on-device pose estimation, forecasting pipelines. 1st place, AI Seekho 2026.">
+<meta property="og:image" content="https://umair-ali.vercel.app/assets/portrait.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Hafiz Muhammad Umair Ali — AI/ML Engineer">
-<meta name="twitter:description" content="AI/ML Engineer — RAG, LoRA fine-tuning, MLOps. National hackathon champion.">
-<meta name="twitter:image" content="https://umair-ali.vercel.app/assets/umair-portrait.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0a0d0c; --surf:#101412; --surf2:#141917;
-  --card:rgba(255,255,255,.04); --border:rgba(255,255,255,.08);
-  --ink:#eef2ef; --ink-dim:#9aa8a2; --ink-mute:#657069;
+  --bg:#0a0d0c; --surf:#101412; --surf2:#151a18;
+  --border:rgba(255,255,255,.09); --border-2:rgba(255,255,255,.16);
+  --ink:#eef2ef; --ink-dim:#a3b0aa; --ink-mute:#77837d;
   --accent:#d4a949; --accent-dim:#8a713a;
   --sig:#4f7a68; --sig-l:#7fae98;
-  --mono:'JetBrains Mono',monospace;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --serif:'Fraunces',Georgia,serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-serif;line-height:1.6;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
 ::selection{background:var(--sig);color:#fff}
-::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent-dim);border-radius:99px}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
-.serif{font-family:'Fraunces',serif}
-.mono{font-family:var(--mono)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 
-/* ---------- NAV ---------- */
-nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.4rem;background:rgba(10,13,12,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.logo{font-family:var(--mono);font-weight:500;font-size:.95rem;letter-spacing:.04em;color:var(--ink)}
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.4rem;background:rgba(10,13,12,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--mono);font-size:.92rem;letter-spacing:.04em}
 .logo span{color:var(--accent)}
-.nav-links{display:flex;gap:2.1rem;list-style:none}
-.nav-links a{font-size:.78rem;color:var(--ink-dim);letter-spacing:.02em;transition:color .2s;position:relative}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{font-size:.8rem;color:var(--ink-dim);transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
-.nav-cta{border:1px solid var(--border);padding:.45rem 1.1rem;border-radius:2px;font-size:.75rem;transition:all .25s}
-.nav-cta:hover{border-color:var(--accent);color:var(--accent)}
-.burger{display:none;background:none;border:none;color:var(--ink);font-size:1.3rem;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center}
-@media(max-width:840px){
-  nav{padding:1rem 1.4rem}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,13,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);max-height:calc(100vh - 60px);overflow-y:auto}
+.nav-cta{border:1px solid var(--border-2);padding:.42rem 1rem;border-radius:2px}
+.nav-cta:hover{border-color:var(--accent);color:var(--accent)!important}
+.burger{display:none;background:none;border:0;color:var(--ink);font-size:1.3rem;width:44px;height:44px;cursor:pointer}
+@media(max-width:860px){
+  nav{padding:.9rem 1rem}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,13,12,.98);border-bottom:1px solid var(--border)}
   .nav-links.open{display:flex}
   .nav-links li{width:100%}
-  .nav-links a{display:block;padding:1rem 1.6rem;font-size:.85rem;border-top:1px solid var(--border)}
-  .nav-links .nav-cta{border:none;color:var(--accent)}
-  .burger{display:flex}
+  .nav-links a{display:block;padding:1rem 1.4rem;border-top:1px solid var(--border);font-size:.9rem}
+  .nav-cta{border:0}
+  .burger{display:block}
 }
 
-/* ---------- HERO ---------- */
-#hero{min-height:100vh;display:flex;align-items:center;padding:8rem 2.4rem 4rem;position:relative}
-@media(max-width:480px){#hero{padding:6.5rem 1.3rem 3rem}.hero-wrap{gap:2.2rem}}
-.hero-wrap{max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.35fr .9fr;gap:4rem;align-items:center}
-.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.6rem;margin-bottom:1.6rem}
-.eyebrow::before{content:'';width:7px;height:7px;background:var(--sig-l);border-radius:50%;box-shadow:0 0 10px var(--sig-l)}
-.hero-title{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2.4rem,5.2vw,4.3rem);line-height:1.04;letter-spacing:-.01em;margin-bottom:1.5rem}
-.hero-title em{font-style:italic;color:var(--accent);font-weight:400}
-.hero-desc{font-size:1.02rem;color:var(--ink-dim);max-width:540px;margin-bottom:2.2rem;line-height:1.75}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
-.btn-p{background:var(--ink);color:var(--bg);padding:.85rem 1.7rem;font-size:.85rem;font-weight:600;border-radius:2px;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;border:1px solid var(--ink)}
-.btn-p:hover{background:transparent;color:var(--ink)}
-.btn-o{border:1px solid var(--border);padding:.85rem 1.7rem;font-size:.85rem;font-weight:600;border-radius:2px;transition:all .25s}
-.btn-o:hover{border-color:var(--accent);color:var(--accent)}
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);padding-top:1.4rem;max-width:560px}
-.stat b{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:600;display:block;color:var(--accent)}
-.stat span{font-size:.68rem;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.06em}
-
-.hero-photo{position:relative;perspective:1000px}
-.blob{position:absolute;z-index:0;width:120%;height:120%;top:-10%;left:-10%;background:linear-gradient(135deg,var(--sig) 0%,var(--accent-dim) 100%);opacity:.35;filter:blur(50px);animation:morph 9s ease-in-out infinite,rotate 22s linear infinite;pointer-events:none}
-@keyframes morph{
-  0%,100%{border-radius:42% 58% 65% 35% / 45% 40% 60% 55%}
-  25%{border-radius:58% 42% 35% 65% / 62% 55% 45% 38%}
-  50%{border-radius:50% 50% 38% 62% / 35% 62% 38% 65%}
-  75%{border-radius:38% 62% 55% 45% / 58% 42% 58% 42%}
-}
-@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.photo-frame{aspect-ratio:4/5;border-radius:3px;overflow:hidden;border:1px solid var(--border);position:relative;z-index:1}
-.tilt{transform-style:preserve-3d;transition:transform .1s ease-out;will-change:transform}
-.tilt img{transition:transform .1s ease-out}
-.tilt::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,var(--glare,0)) 0%,transparent 55%);pointer-events:none;transition:background .1s ease-out;z-index:2}
-.photo-frame img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) contrast(1.05)}
-.photo-tag{position:absolute;bottom:-1px;left:-1px;background:var(--ink);color:var(--bg);font-family:var(--mono);font-size:.68rem;padding:.5rem .85rem;letter-spacing:.03em}
-.photo-tag2{position:absolute;top:14px;right:14px;background:rgba(10,13,12,.75);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);color:var(--sig-l);font-family:var(--mono);font-size:.66rem;padding:.35rem .65rem;border-radius:20px}
-@media(max-width:840px){.hero-wrap{grid-template-columns:1fr}.hero-photo{max-width:300px;margin:0 auto}.hero-stats{grid-template-columns:repeat(2,1fr);row-gap:1.2rem}}
-
-/* ---------- SECTION SHELL ---------- */
-section{padding:6.5rem 2.4rem}
-@media(max-width:480px){section{padding:4.2rem 1.3rem}}
+/* shell */
+section{padding:6rem 2.4rem}
+@media(max-width:600px){section{padding:4rem 1rem}}
 .wrap{max-width:1180px;margin:0 auto}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
-.sec-num{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);letter-spacing:.1em}
-.sec-title{font-family:'Fraunces',serif;font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:500;margin-top:.4rem}
-.sec-sub{color:var(--ink-dim);max-width:480px;font-size:.92rem;text-align:right}
-@media(max-width:700px){.sec-sub{text-align:left}}
 .alt{background:var(--surf)}
+.sec-head{margin-bottom:2.8rem;max-width:760px}
+.sec-num{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);letter-spacing:.1em;text-transform:uppercase}
+.sec-title{font-family:var(--serif);font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:500;line-height:1.15;margin:.4rem 0 .8rem}
+.sec-sub{color:var(--ink-dim);font-size:.98rem}
 
-/* ---------- ABOUT ---------- */
-#about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;grid-template-rows:auto 1fr;gap:1rem 4rem;align-items:start}
-#about .sec-head{grid-column:1/-1}
-#about .about-photo{grid-column:1;grid-row:2}
-#about .about-body{grid-column:2;grid-row:2}
-.about-photo{aspect-ratio:3/4;border-radius:3px;overflow:hidden;border:1px solid var(--border);position:relative}
-.about-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15)}
-.about-body p{color:var(--ink-dim);font-size:.98rem;line-height:1.85;margin-bottom:1.2rem}
-.about-body strong{color:var(--ink);font-weight:600}
-.fact-row{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem}
-@media(max-width:480px){.fact-row{grid-template-columns:1fr}}
-.fact{border-left:2px solid var(--sig);padding-left:1rem}
-.fact b{display:block;font-size:.92rem;margin-bottom:.15rem}
-.fact span{font-size:.78rem;color:var(--ink-mute)}
-@media(max-width:780px){#about .wrap{grid-template-columns:1fr;grid-template-rows:auto auto auto}#about .about-photo,#about .about-body{grid-column:1;grid-row:auto}#about .about-photo{max-width:280px;margin:0 auto}}
+/* hero */
+#hero{min-height:92vh;display:flex;align-items:center;padding:7.5rem 2.4rem 4rem}
+@media(max-width:600px){#hero{padding:6rem 1rem 3rem}}
+.hero-wrap{max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.3fr .9fr;gap:4rem;align-items:center}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.6rem;margin-bottom:1.4rem}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--sig-l);box-shadow:0 0 10px var(--sig-l)}
+.hero-title{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,4.8vw,3.9rem);line-height:1.06;letter-spacing:-.01em;margin-bottom:1.4rem}
+.hero-title em{font-style:italic;color:var(--accent);font-weight:400}
+.hero-desc{color:var(--ink-dim);font-size:1.03rem;max-width:560px;margin-bottom:2rem;line-height:1.75}
+.hero-desc strong{color:var(--ink);font-weight:600}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.btn{padding:.8rem 1.5rem;font-size:.86rem;font-weight:600;border-radius:2px;border:1px solid var(--border-2);transition:all .2s;display:inline-flex;gap:.45rem;align-items:center}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.primary:hover{background:transparent;color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;border-top:1px solid var(--border);padding-top:1.3rem;max-width:600px}
+.stat b{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--accent);display:block;line-height:1.2}
+.stat span{font-size:.7rem;color:var(--ink-mute);letter-spacing:.03em;line-height:1.35;display:block;margin-top:.25rem}
+.hero-photo{position:relative}
+.hero-photo figure{border:1px solid var(--border);border-radius:3px;overflow:hidden;aspect-ratio:4/5;position:relative}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.photo-tag{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--bg);font-family:var(--mono);font-size:.68rem;padding:.45rem .8rem}
+@media(max-width:860px){.hero-wrap{grid-template-columns:1fr;gap:2.4rem}.hero-photo{max-width:320px}.stats{grid-template-columns:repeat(2,1fr)}}
 
-/* ---------- FLAGSHIP / HACKATHON ---------- */
-#flagship{position:relative}
-.flag-card{border:1px solid var(--border);border-radius:4px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:var(--surf2)}
-.flag-photo{position:relative;min-height:340px}
-.flag-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.flag-body{padding:2.6rem;display:flex;flex-direction:column;justify-content:center}
-@media(max-width:480px){.flag-body{padding:1.6rem}}
-.flag-eyebrow{font-family:var(--mono);font-size:.7rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.9rem}
-.flag-title{font-family:'Fraunces',serif;font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:500;margin-bottom:1rem;line-height:1.15}
-.flag-body p{color:var(--ink-dim);font-size:.92rem;line-height:1.75;margin-bottom:1.4rem}
-.flag-metrics{display:flex;gap:1.8rem;flex-wrap:wrap;margin-top:.4rem}
-.flag-metrics div b{font-family:'Fraunces',serif;color:var(--accent);font-size:1.3rem;display:block}
-.flag-metrics div span{font-size:.68rem;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.05em}
-@media(max-width:780px){.flag-card{grid-template-columns:1fr}.flag-photo{min-height:260px}}
+/* project case */
+.case{border:1px solid var(--border);border-radius:4px;background:var(--surf2);margin-bottom:2rem;overflow:hidden}
+.case-head{padding:2rem 2.2rem 0;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:flex-start}
+@media(max-width:600px){.case-head{padding:1.4rem 1.1rem 0}}
+.tag{font-family:var(--mono);font-size:.66rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;border:1px solid rgba(212,169,73,.35);padding:.22rem .6rem;border-radius:20px;display:inline-block;margin-bottom:.7rem}
+.case-title{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:500;line-height:1.2}
+.case-sub{color:var(--ink-dim);font-size:.95rem;margin-top:.4rem;max-width:640px}
+.links{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.82rem;font-weight:600}
+.links a{color:var(--sig-l);border-bottom:1px solid transparent}
+.links a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.links .muted{color:var(--ink-mute);font-weight:500}
+.case-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:2.2rem;padding:1.6rem 2.2rem 2.2rem}
+.case-grid.flip{grid-template-columns:1fr 1.05fr}
+@media(max-width:900px){.case-grid,.case-grid.flip{grid-template-columns:1fr;padding:1.2rem 1.1rem 1.4rem;gap:1.6rem}}
+.label{font-family:var(--mono);font-size:.68rem;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.1em;margin:0 0 .55rem}
+.problem{color:var(--ink-dim);font-size:.92rem;margin-bottom:1.3rem;line-height:1.7}
+.bul{list-style:none;margin-bottom:1.3rem}
+.bul li{font-size:.88rem;color:var(--ink-dim);padding:.28rem 0 .28rem 1.15rem;position:relative;line-height:1.65}
+.bul li::before{content:'';position:absolute;left:0;top:.82rem;width:6px;height:1px;background:var(--sig-l)}
+.bul li strong{color:var(--ink);font-weight:600}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.7rem;margin-bottom:1.3rem}
+.num{border-left:2px solid var(--sig);padding:.1rem 0 .1rem .8rem}
+.num b{font-family:var(--serif);font-size:1.3rem;color:var(--ink);font-weight:600;display:block;line-height:1.2}
+.num span{font-size:.72rem;color:var(--ink-mute);line-height:1.35;display:block}
+.stack{display:flex;flex-wrap:wrap;gap:.4rem}
+.stack span{font-family:var(--mono);font-size:.68rem;color:var(--ink-dim);border:1px solid var(--border);padding:.2rem .6rem;border-radius:20px}
+figure.shot{border:1px solid var(--border);border-radius:3px;overflow:hidden;background:var(--bg)}
+figure.shot img{width:100%}
+figcaption,.cap{font-size:.74rem;color:var(--ink-mute);padding:.6rem .2rem 0;line-height:1.5}
+figure.shot figcaption{padding:.55rem .8rem .7rem}
+.visual-stack{display:flex;flex-direction:column;gap:1.4rem;min-width:0}
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:460px;margin:0 auto}
+.phones figure{background:transparent;border:0}
+.panel{border:1px solid var(--border);border-radius:3px;background:var(--bg);padding:1rem 1rem .6rem}
+.panel h4{font-size:.82rem;font-weight:600;margin-bottom:.15rem}
+.panel .cap{padding:.2rem 0 .5rem}
 
-/* ---------- EXPERIENCE ---------- */
-.tl{border-left:1px solid var(--border);padding-left:2.2rem}
-.trow{position:relative;padding-bottom:2.6rem}
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:.4rem;list-style:none}
+.flow li{flex:1 1 120px;border:1px solid var(--border);border-radius:3px;padding:.6rem .7rem;background:var(--surf);position:relative;font-size:.78rem;color:var(--ink-dim);line-height:1.4}
+.flow li b{display:block;color:var(--ink);font-size:.8rem;font-weight:600;margin-bottom:.15rem}
+.flow li.hl{border-color:rgba(212,169,73,.5)}
+.flow li.hl b{color:var(--accent)}
+.flow li.ok{border-color:rgba(127,174,152,.5)}
+
+/* leakage timeline */
+.tl-grid{display:grid;grid-template-columns:5.2rem repeat(6,1fr);gap:4px;align-items:center;font-family:var(--mono);font-size:.68rem}
+.tl-grid .h{color:var(--ink-mute);text-align:center}
+.tl-grid .rl{color:var(--ink-dim);font-size:.66rem}
+.cell{height:22px;border-radius:2px;background:var(--surf);border:1px solid var(--border)}
+.cell.in{background:rgba(127,174,152,.35);border-color:var(--sig-l)}
+.cell.bad{background:rgba(224,114,74,.4);border-color:#e0724a}
+.cell.tgt{background:transparent;border:1px dashed var(--accent)}
+
+/* chart */
+.chart{position:relative}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+@media(max-width:600px){.chart{overflow-x:auto;-webkit-overflow-scrolling:touch}.chart svg{min-width:500px}.chart::after{content:"Scroll sideways →";display:block;font-size:.68rem;color:var(--ink-mute);padding-top:.3rem}}
+.chart text{font-family:var(--mono);font-size:12px;fill:var(--ink-mute)}
+.tip{position:absolute;pointer-events:none;background:var(--surf2);border:1px solid var(--border-2);color:var(--ink);font-family:var(--mono);font-size:.7rem;padding:.35rem .55rem;border-radius:3px;white-space:nowrap;opacity:0;transform:translate(-50%,-120%);transition:opacity .1s}
+.tip.on{opacity:1}
+details.table-view{margin-top:.2rem}
+details.table-view summary{font-size:.72rem;color:var(--ink-mute);cursor:pointer;padding:.3rem 0}
+details.table-view table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.7rem;color:var(--ink-dim);margin:.4rem 0}
+details.table-view td,details.table-view th{border-bottom:1px solid var(--border);padding:.3rem .4rem;text-align:left}
+details.table-view th{color:var(--ink-mute);font-weight:500}
+
+/* compact cards */
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.mini{border:1px solid var(--border);border-radius:4px;padding:1.6rem;background:var(--surf2);display:flex;flex-direction:column}
+.mini .bul{flex:1}
+
+/* experience */
+.tl{border-left:1px solid var(--border);padding-left:2rem;max-width:860px}
+.trow{position:relative;padding-bottom:2.4rem}
 .trow:last-child{padding-bottom:0}
-.trow::before{content:'';position:absolute;left:-2.31rem;top:.35rem;width:9px;height:9px;background:var(--sig-l);border-radius:50%;box-shadow:0 0 0 4px var(--surf),0 0 10px rgba(127,174,152,.6)}
-.trow-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.55rem}
+.trow::before{content:'';position:absolute;left:-2.32rem;top:.45rem;width:9px;height:9px;border-radius:50%;background:var(--sig-l);box-shadow:0 0 0 4px var(--surf)}
+.trow-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.4rem}
 .trole{font-size:1.05rem;font-weight:600}
-.tco{font-family:var(--mono);font-size:.78rem;color:var(--sig-l);margin-top:.15rem}
-.tdate{font-family:var(--mono);font-size:.7rem;color:var(--ink-mute);white-space:nowrap;align-self:flex-start;padding-top:.2rem}
-.tbul{list-style:none;margin-top:.7rem}
-.tbul li{font-size:.87rem;color:var(--ink-dim);padding:.2rem 0 .2rem 1.1rem;position:relative;line-height:1.7}
-.tbul li::before{content:'—';position:absolute;left:0;color:var(--ink-mute)}
+.tco{font-family:var(--mono);font-size:.78rem;color:var(--sig-l)}
+.tdate{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute)}
 
-/* ---------- PROJECTS ---------- */
-.pcard{border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.6rem;display:grid;grid-template-columns:1fr 1.3fr;transition:border-color .3s}
-.pcard:hover{border-color:var(--accent-dim)}
-.pcard.reverse{grid-template-columns:1.3fr 1fr}
-.pcard.reverse .p-photo{order:2}
-.p-photo{position:relative;min-height:220px;background:var(--surf2)}
-.p-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.p-photo-empty{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;color:var(--ink-mute);letter-spacing:.06em;position:absolute;inset:0;background:linear-gradient(135deg,rgba(79,122,104,.12),transparent)}
-.p-body{padding:2.1rem 2.3rem}
-@media(max-width:480px){.p-body{padding:1.5rem 1.4rem}}
-.p-tag{font-family:var(--mono);font-size:.66rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.6rem;display:inline-block;border:1px solid rgba(212,169,73,.3);padding:.2rem .55rem;border-radius:20px}
-.p-title{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:500;margin-bottom:.65rem}
-.p-desc{color:var(--ink-dim);font-size:.88rem;line-height:1.7;margin-bottom:1rem}
-.p-list{list-style:none;margin-bottom:1.2rem}
-.p-list li{font-size:.82rem;color:var(--ink-dim);padding:.15rem 0 .15rem 1rem;position:relative}
-.p-list li::before{content:'▸';position:absolute;left:0;color:var(--sig-l);font-size:.7rem;top:.28rem}
-.p-stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
-.p-stack span{font-family:var(--mono);font-size:.68rem;color:var(--ink-mute);border:1px solid var(--border);padding:.22rem .6rem;border-radius:20px}
-.p-link{font-size:.8rem;font-weight:600;color:var(--sig-l);display:inline-flex;align-items:center;gap:.4rem}
-.p-link:hover{color:var(--accent)}
-@media(max-width:780px){.pcard,.pcard.reverse{grid-template-columns:1fr}.pcard.reverse .p-photo{order:0}.p-photo{min-height:200px}}
+/* about */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:3.4rem;align-items:start}
+@media(max-width:860px){.about{grid-template-columns:1fr;gap:2rem}}
+.about p{color:var(--ink-dim);font-size:.97rem;line-height:1.85;margin-bottom:1.1rem}
+.about p strong{color:var(--ink);font-weight:600}
+.cred{display:flex;flex-direction:column;gap:.9rem;margin-top:1.6rem}
+.cred div{display:grid;grid-template-columns:3.4rem 1fr;gap:.8rem;border-bottom:1px solid var(--border);padding-bottom:.9rem}
+.cred div:last-child{border-bottom:0}
+.cred i{font-style:normal;font-family:var(--mono);font-size:.72rem;color:var(--sig-l);padding-top:.15rem}
+.cred b{display:block;font-size:.93rem}
+.cred span{font-size:.8rem;color:var(--ink-mute)}
 
-/* ---------- SKILLS ---------- */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
-.skcat{border:1px solid var(--border);border-radius:4px;padding:1.5rem;transition:border-color .3s}
-.skcat:hover{border-color:var(--accent-dim)}
-.skcat-title{font-family:var(--mono);font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}
-.sktags{display:flex;flex-wrap:wrap;gap:.5rem}
-.sktags span{font-size:.8rem;color:var(--ink-dim);border-bottom:1px solid var(--border);padding:.15rem 0}
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem}
+.sk{border:1px solid var(--border);border-radius:4px;padding:1.4rem}
+.sk h3{font-family:var(--mono);font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;font-weight:500;margin-bottom:.9rem}
+.sk ul{list-style:none}
+.sk li{font-size:.86rem;padding:.3rem 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;gap:.8rem}
+.sk li:last-child{border-bottom:0}
+.sk li span{color:var(--ink-mute);font-size:.72rem;font-family:var(--mono);text-align:right}
 
-/* ---------- CREDENTIALS ---------- */
-#cred .wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.cred-photo{aspect-ratio:3/2;border-radius:3px;overflow:hidden;border:1px solid var(--border);position:relative}
-.cred-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2)}
-.cred-list{display:flex;flex-direction:column;gap:1.1rem}
-.cred-item{display:flex;gap:1rem;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:1.1rem}
-.cred-item:last-child{border-bottom:none}
-.cred-item b{font-size:.94rem;display:block}
-.cred-item span{font-size:.78rem;color:var(--ink-mute)}
-.cred-mk{font-family:var(--mono);font-size:.7rem;color:var(--sig-l);flex-shrink:0;padding-top:.15rem}
-@media(max-width:780px){#cred .wrap{grid-template-columns:1fr}}
-
-/* ---------- CONTACT ---------- */
+/* contact */
 #contact{text-align:center}
-#contact .sec-title{font-size:clamp(2rem,5vw,3.4rem)}
-.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2.2rem}
-.clink{border:1px solid var(--border);padding:.9rem 1.6rem;border-radius:2px;font-size:.85rem;font-weight:600;transition:all .25s}
-.clink:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-footer{padding:2.2rem 2.4rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.72rem;color:var(--ink-mute)}
+.contact-links{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
+footer{padding:2rem 2.4rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.72rem;color:var(--ink-mute)}
+@media(max-width:600px){footer{padding:1.6rem 1rem}}
 
-.fu{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
-.fu.vis{opacity:1;transform:translateY(0)}
+.fu{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.fu.vis{opacity:1;transform:none}
+.no-js .fu{opacity:1;transform:none}
 </style>
 </head>
-<body>
+<body class="no-js">
 
-<nav>
+<nav aria-label="Main">
   <a href="#hero" class="logo">HMU<span>.</span>ALI</a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#flagship">Hackathon</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="assets/Hafiz_Umair_Ali_Resume.pdf" download>Résumé</a></li>
+    <li><a href="assets/Hafiz_Umair_Ali_Resume.pdf">Résumé</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
-  <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
 </nav>
 
-<!-- HERO -->
+<main>
 <section id="hero">
   <div class="hero-wrap">
-    <div class="fu vis">
-      <div class="eyebrow">AI/ML Engineer · National Hackathon Champion</div>
-      <h1 class="hero-title">Building systems that <em>reason</em>, retrieve &amp; ship.</h1>
-      <p class="hero-desc">I'm Umair — a Computer Science graduate from DHA Suffa University building RAG pipelines, fine-tuned language models, and MLOps workflows that hold up outside a notebook. Most recently, my team won <strong style="color:var(--ink)">PKR 1,000,000</strong> and a national title at Google's AI Seekho hackathon.</p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn-p">See the work ↓</a>
-        <a href="assets/Hafiz_Umair_Ali_Resume.pdf" class="btn-o" download>Résumé ↓</a>
-        <a href="#contact" class="btn-o">Get in touch</a>
+    <div>
+      <div class="eyebrow">AI/ML Engineer · Karachi</div>
+      <h1 class="hero-title">LLM systems that run on <em>hardware people already own.</em></h1>
+      <p class="hero-desc">I'm <strong>Hafiz Muhammad Umair Ali</strong>, a Computer Science graduate from DHA Suffa University (CGPA 3.89/4.00). I fine-tune small language models with QLoRA, build retrieval pipelines that check their answers against the source, and ship computer vision that runs on the phone. My team won <strong>1st place at AI Seekho 2026</strong>, Google and Telenor's national hackathon.</p>
+      <div class="btns">
+        <a href="#work" class="btn primary">Selected work ↓</a>
+        <a href="https://github.com/UH-ALI" class="btn">GitHub</a>
+        <a href="assets/Hafiz_Umair_Ali_Resume.pdf" class="btn">Résumé (PDF)</a>
       </div>
-      <div class="hero-stats">
+      <div class="stats">
+        <div class="stat"><b>1st</b><span>AI Seekho 2026, PKR 1M prize</span></div>
+        <div class="stat"><b>8 GB</b><span>GPU that SLM Studio fine-tunes on</span></div>
+        <div class="stat"><b>20 / 20</b><span>reps counted on a real 96-s push-up recording</span></div>
         <div class="stat"><b>3.89</b><span>CGPA / 4.00</span></div>
-        <div class="stat"><b>1st</b><span>Nat'l Hackathon</span></div>
-        <div class="stat"><b>4</b><span>Internships</span></div>
-        <div class="stat"><b>4+</b><span>Yrs Teaching</span></div>
       </div>
     </div>
-    <div class="hero-photo fu vis">
-      <div class="blob"></div>
-      <div class="photo-frame tilt">
-        <img src="assets/umair-portrait.jpg" alt="Umair Ali portrait">
-        <div class="photo-tag2">● Karachi, PK</div>
-        <div class="photo-tag">Umair Ali — AI Engineer</div>
-      </div>
+    <div class="hero-photo">
+      <figure><img src="assets/portrait.jpg" alt="Portrait of Umair Ali" width="826" height="551" fetchpriority="high"><div class="photo-tag">Umair Ali · AI/ML Engineer</div></figure>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="alt">
+<section id="work" class="alt">
   <div class="wrap">
-    <div class="sec-head">
-      <div><div class="sec-num">01 / About</div><h2 class="sec-title">Who I am</h2></div>
-      <p class="sec-sub">Engineer first, educator by habit — four years of teaching taught me to explain systems clearly, which turns out to matter as much as building them.</p>
+    <div class="sec-head fu">
+      <div class="sec-num">01 · Selected work</div>
+      <h2 class="sec-title">Systems I've built</h2>
+      <p class="sec-sub">Each project says what problem it solves, what I built myself, and the numbers that can be checked in the code.</p>
     </div>
-    <div class="about-photo fu tilt">
-      <img src="assets/umair-campus.jpg" alt="Umair Ali on campus">
-    </div>
-    <div class="about-body fu">
-      <p>I graduated in July 2026 with a BS in Computer Science from <strong>DHA Suffa University, Karachi</strong> (CGPA 3.89/4.00). My work sits at the intersection of Generative AI and MLOps: Retrieval-Augmented Generation, LoRA fine-tuning, and the pipelines that keep models retraining and deploying without someone babysitting them.</p>
-      <p>My capstone, <strong>No-Code SLM Studio</strong>, let non-technical teams fine-tune and deploy domain-specific small language models without writing code — training wizard, automatic dataset generation, live training dashboard, one-click deployment. In parallel, I completed a Data Science internship at <strong>10Pearls</strong>, building an automated AQI-forecasting pipeline with scheduled retraining.</p>
-      <p>Before any of that, I've been teaching O/A-Level Mathematics and Computer Science since 2021, and now coordinate academics for 100+ students and a team of about 10 instructors at The Learning Tribe — the reason I default to explaining my systems rather than just shipping them.</p>
-      <div class="fact-row">
-        <div class="fact"><b>DHA Suffa University</b><span>BS Computer Science · CGPA 3.89/4.00</span></div>
-        <div class="fact"><b>Karachi, Pakistan</b><span>Open to AI/ML engineering roles</span></div>
-        <div class="fact"><b>GenAI Focus</b><span>RAG · LoRA · Tool-Calling · Vector DBs</span></div>
-        <div class="fact"><b>MLOps Focus</b><span>GitHub Actions · Hopsworks · CI/CD</span></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- FLAGSHIP: HACKATHON -->
-<section id="flagship">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><div class="sec-num">02 / Flagship win</div><h2 class="sec-title">National Vibe Champs, 2026</h2></div>
-      <p class="sec-sub">AI Seekho — a nationwide hackathon backed by Google for Developers, Telenor Velocity, and Pakistan's Ministry of IT &amp; Telecommunications.</p>
-    </div>
-    <div class="flag-card fu">
-      <div class="flag-photo tilt">
-        <img src="assets/hackathon-win.jpg" alt="Team receiving PKR 1,000,000 cheque at AI Seekho 2026">
+    <!-- SLM STUDIO -->
+    <article class="case fu" id="slm-studio">
+      <div class="case-head">
+        <div>
+          <span class="tag">Final-year project · project lead · team of 4</span>
+          <h3 class="case-title">SLM Studio: fine-tune and serve a private assistant on one 8 GB GPU</h3>
+          <p class="case-sub">Upload documents, pick a use case, and get a QLoRA-tuned small language model that answers from your files through retrieval, without writing code.</p>
+        </div>
+        <div class="links"><a href="https://github.com/UH-ALI/SLM-STUDIO">Code →</a><a href="https://youtu.be/X7gBo-rPkks">Demo video →</a></div>
       </div>
-      <div class="flag-body">
-        <div class="flag-eyebrow">STRUGGLER: The Architect's Trial</div>
-        <h3 class="flag-title">1st Place, AI Seekho — Google Antigravity Hackathon</h3>
-        <p>An adaptive 2D platformer where an adversarial AI — the "Architect" — designs each level from the previous one's telemetry: deaths, damage taken, dodge accuracy, and playstyle (reckless jumper, speedrunner, poor dodger) feed Gemini 2.5 Flash, which outputs a level blueprint that a local BFS validator checks for solvability, auto-repairing unreachable layouts before they ever load.</p>
-        <p>A second real-time loop tunes enemy health/damage mid-level and generates cause-specific taunts on death — with race-condition handling to discard stale AI responses if the player dies twice in quick succession. All model calls route through a Cloud Functions relay so no API keys ship in the client build.</p>
-        <p style="margin-bottom:0">Competed nationally under the #VibeKaregaPakistan banner, judged by engineers from Google, Telenor, and Innovista.</p>
-        <div class="flag-metrics">
-          <div><b>PKR 1M</b><span>Prize awarded</span></div>
-          <div><b>#1</b><span>National ranking</span></div>
-          <div><b>Gemini 2.5</b><span>Flash — core model</span></div>
+      <div class="case-grid">
+        <div>
+          <p class="label">Problem</p>
+          <p class="problem">Small businesses want an assistant that knows their policies and manuals. Hosted LLM APIs mean sending those documents to a provider and paying per token; frontier models don't fit on a consumer GPU.</p>
+          <p class="label">What I built (with Muhammad Saleem)</p>
+          <ul class="bul">
+            <li><strong>Model selection:</strong> compared FLAN-T5, Qwen and Gemma on an 8 GB RTX 5060; settled on Qwen3-1.7B, Qwen3-4B and Phi-3.5-mini, chosen per use case.</li>
+            <li><strong>Training:</strong> synthetic instruction pairs from the uploaded documents, then 4-bit QLoRA with Unsloth on all attention and MLP projections, with a 10% validation split; the best epoch is kept.</li>
+            <li><strong>Retrieval:</strong> SHA-256 deduplication, header-aware chunking that never splits tables, bge-small embeddings in ChromaDB, top-5 retrieval with a cosine-distance cutoff.</li>
+            <li><strong>Serving:</strong> per-project LoRA adapters hot-swapped onto a shared 4-bit base model with LRU eviction, so many projects share one GPU.</li>
+          </ul>
+          <div class="nums">
+            <div class="num"><b>3</b><span>base models across 6 use cases</span></div>
+            <div class="num"><b>r = 16 / 32</b><span>LoRA rank by use case</span></div>
+            <div class="num"><b>≈ 2 GB</b><span>Qwen3-4B weights at 4-bit</span></div>
+          </div>
+          <div class="stack"><span>PyTorch</span><span>Unsloth</span><span>PEFT</span><span>bitsandbytes</span><span>ChromaDB</span><span>FastAPI</span><span>Celery</span><span>Redis</span><span>PostgreSQL</span><span>Next.js</span></div>
+        </div>
+        <div class="visual-stack">
+          <div class="panel">
+            <h4>Why a small model fits and a large one doesn't</h4>
+            <p class="cap">Weight memory at 4-bit precision (parameters × 0.5 bytes), against the 8 GB card we trained on. Weights only; adapters, activations and KV cache need the rest.</p>
+            <div class="chart">
+<svg viewBox="0 0 560 196" role="img" aria-label="4-bit weight memory: Qwen3-1.7B 0.85 GB, Phi-3.5-mini 1.9 GB, Qwen3-4B 2 GB, all under the 8 GB card; Llama-3.3-70B needs 35 GB">
+<line x1="150" x2="150" y1="22" y2="172" stroke="rgba(255,255,255,.18)"/>
+<line x1="226.9" x2="226.9" y1="18" y2="172" stroke="#d4a949" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="226.9" y="14" text-anchor="middle" style="fill:#d4a949">8 GB card</text>
+<g data-tip="Qwen3-1.7B: ≈0.85 GB of 4-bit weights"><rect x="150" y="22" width="346" height="30" fill="transparent"/><text x="142" y="41.0" text-anchor="end" style="fill:#a3b0aa">Qwen3-1.7B</text><path d="M150,26 h4.2 a4,4 0 0 1 4,4 v22 a4,4 0 0 1 -4,4 h-4.2 z" fill="#7fae98"/><text x="164.2" y="41.0" style="fill:#eef2ef">0.85 GB</text></g><g data-tip="Phi-3.5-mini (3.8B): ≈1.90 GB of 4-bit weights"><rect x="150" y="58" width="346" height="30" fill="transparent"/><text x="142" y="77.0" text-anchor="end" style="fill:#a3b0aa">Phi-3.5-mini (3.8B)</text><path d="M150,62 h14.3 a4,4 0 0 1 4,4 v22 a4,4 0 0 1 -4,4 h-14.3 z" fill="#7fae98"/><text x="174.3" y="77.0" style="fill:#eef2ef">1.90 GB</text></g><g data-tip="Qwen3-4B: ≈2.00 GB of 4-bit weights"><rect x="150" y="94" width="346" height="30" fill="transparent"/><text x="142" y="113.0" text-anchor="end" style="fill:#a3b0aa">Qwen3-4B</text><path d="M150,98 h15.2 a4,4 0 0 1 4,4 v22 a4,4 0 0 1 -4,4 h-15.2 z" fill="#7fae98"/><text x="175.2" y="113.0" style="fill:#eef2ef">2.00 GB</text></g><g data-tip="Llama-3.3-70B: ≈35.00 GB of 4-bit weights — used only through the Groq API"><rect x="150" y="130" width="346" height="30" fill="transparent"/><text x="142" y="149.0" text-anchor="end" style="fill:#a3b0aa">Llama-3.3-70B</text><path d="M150,134 h332.4 a4,4 0 0 1 4,4 v22 a4,4 0 0 1 -4,4 h-332.4 z" fill="#5b6660"/><text x="492.4" y="149.0" style="fill:#eef2ef">35.00 GB</text></g><text x="150.0" y="188" text-anchor="middle">0 GB</text><text x="226.9" y="188" text-anchor="middle">8 GB</text><text x="303.8" y="188" text-anchor="middle">16 GB</text><text x="380.7" y="188" text-anchor="middle">24 GB</text><text x="457.6" y="188" text-anchor="middle">32 GB</text>
+</svg>
+<details class="table-view"><summary>Data table</summary><table><thead><tr><th>Model</th><th>Parameters</th><th>4-bit weights</th></tr></thead><tbody><tr><td>Qwen3-1.7B</td><td>1.7B</td><td>0.85 GB</td></tr><tr><td>Phi-3.5-mini (3.8B)</td><td>3.8B</td><td>1.90 GB</td></tr><tr><td>Qwen3-4B</td><td>4B</td><td>2.00 GB</td></tr><tr><td>Llama-3.3-70B</td><td>70B</td><td>35.00 GB</td></tr></tbody></table></details>
+</div>
+          </div>
+          <ol class="flow" aria-label="SLM Studio pipeline">
+            <li><b>Upload</b>dedup, parse, chunk</li>
+            <li><b>Embed</b>bge-small → ChromaDB</li>
+            <li class="hl"><b>Train</b>4-bit QLoRA adapter</li>
+            <li class="ok"><b>Serve</b>adapter swap + top-5 RAG</li>
+          </ol>
+          <figure class="shot"><img src="assets/slm-studio-expo.jpg" alt="The SLM Studio team beside the project poster at the VERTEX 1.0 final-year project expo" width="1280" height="960" loading="lazy"><figcaption>The team presenting SLM Studio at VERTEX 1.0, DSU's final-year project expo.</figcaption></figure>
         </div>
       </div>
+    </article>
+
+    <!-- REPRUSH -->
+    <article class="case fu" id="reprush">
+      <div class="case-head">
+        <div>
+          <span class="tag">Hackathon · team of 3 · owned the capture track</span>
+          <h3 class="case-title">RepRush: counting reps from a phone camera, on the phone</h3>
+          <p class="case-sub">A calisthenics territory game. The camera counts reps and grades form on-device; the server scores sets from measurements only. No video ever leaves the phone.</p>
+        </div>
+        <div class="links"><a href="https://github.com/UH-ALI/RepRush">Code →</a></div>
+      </div>
+      <div class="case-grid flip">
+        <div class="visual-stack">
+          <div class="panel">
+            <h4>Elbow angle during a real 20-rep push-up set</h4>
+            <p class="cap">Recorded on a phone (landmark numbers only, no images). Smoothed with the pipeline's EMA (α = 0.35). A rep counts when the angle drops below the peak line and then climbs back past the rest line; the gap between the two lines stops jitter from double-counting. Green ticks mark each counted rep.</p>
+            <div class="chart" id="pushupChart" data-points='[[0.0, 155.7], [0.24, 155.3], [0.45, 159.9], [0.71, 160.0], [0.94, 162.0], [1.13, 160.6], [1.36, 161.2], [1.56, 160.6], [1.78, 159.1], [1.92, 158.6], [2.12, 157.7], [2.3, 161.6], [2.51, 162.6], [2.75, 163.0], [3.02, 161.1], [3.21, 161.8], [3.43, 163.5], [3.63, 164.1], [3.88, 164.0], [4.07, 162.0], [4.29, 161.2], [4.45, 158.8], [4.67, 159.0], [4.86, 161.3], [5.07, 164.3], [5.29, 162.6], [5.49, 163.8], [5.69, 161.5], [5.87, 159.8], [6.09, 160.1], [6.26, 159.9], [6.51, 159.7], [6.75, 161.4], [6.92, 160.7], [7.14, 161.3], [7.28, 159.0], [7.5, 158.1], [7.73, 158.8], [7.92, 160.5], [8.13, 159.2], [8.35, 153.1], [8.5, 137.7], [8.74, 120.9], [8.95, 100.0], [9.17, 88.2], [9.42, 79.5], [9.6, 77.8], [9.86, 78.0], [10.07, 93.4], [10.29, 109.8], [10.77, 136.9], [11.68, 126.1], [12.38, 80.8], [12.68, 49.2], [13.03, 95.2], [13.38, 137.2], [13.75, 159.1], [14.02, 167.8], [14.22, 171.2], [18.88, 167.6], [19.08, 166.0], [19.26, 167.8], [19.42, 168.6], [19.62, 169.9], [19.77, 170.4], [19.98, 171.2], [20.17, 172.3], [20.5, 170.9], [20.71, 170.4], [20.89, 173.4], [21.03, 173.3], [21.72, 173.3], [21.91, 175.9], [22.14, 176.8], [22.37, 176.4], [22.54, 172.9], [22.82, 167.0], [23.0, 124.8], [23.17, 101.6], [23.38, 99.5], [23.59, 49.1], [23.79, 53.9], [23.94, 112.6], [24.09, 122.6], [24.27, 135.2], [24.54, 153.6], [24.69, 167.6], [24.89, 173.7], [25.12, 159.7], [25.33, 159.9], [25.56, 161.8], [25.72, 161.3], [25.99, 161.2], [26.21, 162.8], [26.41, 163.1], [26.57, 162.9], [26.78, 162.9], [26.96, 162.6], [27.18, 160.9], [27.37, 160.3], [27.57, 160.3], [27.74, 161.0], [27.95, 159.4], [28.14, 159.5], [28.38, 158.7], [28.57, 160.2], [28.81, 159.5], [29.03, 159.5], [29.22, 160.4], [29.43, 160.1], [29.68, 160.6], [29.84, 160.1], [30.05, 160.4], [30.23, 159.6], [30.41, 160.5], [30.66, 161.0], [30.82, 161.5], [31.06, 161.3], [31.23, 161.7], [31.38, 160.9], [31.57, 159.5], [31.76, 159.2], [31.99, 159.8], [32.2, 160.4], [32.42, 159.5], [32.59, 159.9], [32.81, 160.5], [33.0, 161.8], [33.19, 162.8], [33.42, 161.5], [33.59, 162.0], [33.8, 159.3], [34.02, 159.5], [34.2, 160.4], [34.38, 162.2], [34.56, 163.5], [34.75, 163.4], [34.92, 163.5], [35.1, 162.2], [35.24, 162.0], [35.43, 162.7], [35.6, 161.5], [35.77, 161.8], [35.97, 161.7], [36.19, 161.5], [36.36, 158.6], [36.57, 140.2], [36.76, 120.3], [36.99, 104.1], [37.23, 91.3], [37.44, 85.9], [37.63, 84.4], [37.86, 80.7], [38.06, 82.3], [38.22, 82.1], [38.37, 81.6], [38.54, 82.1], [38.73, 80.2], [38.95, 79.3], [39.16, 76.2], [39.36, 72.4], [39.57, 73.5], [39.77, 81.8], [40.01, 99.3], [40.21, 120.2], [40.39, 135.2], [40.62, 149.7], [40.82, 155.3], [41.03, 158.4], [41.24, 157.6], [41.43, 156.7], [41.64, 147.2], [41.82, 133.5], [41.98, 114.7], [42.22, 100.7], [42.38, 87.9], [42.52, 78.6], [42.7, 74.7], [42.93, 73.9], [43.13, 80.9], [43.33, 96.9], [43.52, 114.1], [43.73, 135.4], [43.89, 148.3], [44.13, 153.8], [44.33, 164.0], [44.5, 159.6], [44.71, 150.5], [44.88, 125.7], [45.07, 121.4], [45.23, 126.0], [45.46, 100.8], [45.67, 87.2], [45.86, 82.8], [46.1, 87.8], [46.28, 104.6], [46.46, 120.0], [46.66, 136.4], [46.84, 147.4], [47.07, 153.0], [47.23, 156.2], [47.44, 156.3], [47.66, 156.1], [47.86, 150.0], [48.1, 136.1], [48.32, 117.0], [48.51, 98.3], [48.75, 88.6], [48.92, 79.5], [49.13, 76.9], [49.37, 80.6], [49.49, 92.4], [49.74, 108.4], [49.93, 127.5], [50.1, 143.5], [50.36, 151.3], [50.56, 161.4], [50.73, 170.6], [50.89, 158.1], [51.1, 144.4], [51.3, 120.5], [51.47, 105.6], [51.73, 92.2], [51.91, 83.9], [52.11, 76.9], [52.3, 75.8], [52.49, 81.1], [52.7, 94.3], [52.9, 111.4], [53.14, 126.2], [53.38, 141.7], [53.57, 149.9], [53.87, 155.4], [54.16, 157.8], [54.33, 155.0], [54.53, 142.4], [54.73, 127.2], [54.9, 112.0], [55.1, 97.4], [55.3, 87.4], [55.49, 80.7], [55.71, 77.1], [55.89, 80.8], [56.14, 93.0], [56.31, 115.9], [56.51, 135.0], [56.78, 146.6], [57.28, 160.5], [57.57, 160.7], [58.02, 151.5], [58.25, 82.3], [58.48, 46.3], [58.66, 31.2], [58.89, 73.3], [59.1, 120.9], [59.28, 148.5], [59.49, 162.9], [59.68, 169.1], [59.9, 174.7], [60.08, 175.2], [61.05, 175.8], [61.26, 151.4], [61.47, 130.6], [61.7, 102.7], [61.95, 89.7], [62.14, 81.0], [62.39, 77.9], [62.59, 77.9], [62.78, 80.0], [62.94, 93.6], [63.12, 113.6], [63.32, 130.2], [63.48, 144.4], [63.77, 153.7], [63.97, 157.7], [64.16, 159.1], [64.37, 158.0], [64.6, 151.6], [64.77, 138.0], [64.95, 122.2], [65.17, 102.9], [65.36, 94.3], [65.56, 84.4], [65.78, 79.4], [65.98, 77.5], [66.15, 84.6], [66.39, 99.6], [66.58, 123.0], [66.78, 141.0], [67.0, 149.6], [67.21, 155.9], [67.39, 151.4], [67.55, 137.7], [67.72, 122.6], [67.92, 103.1], [68.08, 92.4], [68.3, 84.5], [68.5, 79.5], [68.74, 77.7], [68.93, 80.2], [69.12, 93.1], [69.39, 107.8], [69.57, 127.4], [69.82, 143.3], [70.06, 152.2], [70.26, 155.6], [70.51, 157.2], [70.68, 157.9], [70.87, 149.3], [71.09, 136.4], [71.33, 117.2], [71.51, 91.7], [71.74, 85.4], [71.97, 78.4], [72.13, 75.3], [72.36, 79.3], [72.56, 94.3], [72.76, 114.3], [72.98, 133.3], [73.15, 147.2], [73.36, 155.8], [73.55, 146.7], [73.8, 130.6], [73.97, 111.3], [74.18, 93.3], [74.44, 87.0], [74.61, 80.6], [74.82, 76.0], [75.01, 76.2], [75.24, 85.8], [75.5, 102.7], [75.71, 124.8], [75.93, 143.2], [76.16, 152.3], [76.33, 156.5], [76.56, 158.7], [76.75, 159.0], [76.97, 155.2], [77.18, 142.2], [77.37, 125.7], [77.57, 104.2], [77.8, 90.3], [77.97, 83.0], [78.14, 78.0], [78.35, 75.7], [78.63, 82.5], [78.9, 104.7], [79.07, 128.2], [79.27, 146.0], [79.48, 152.6], [79.72, 155.9], [79.93, 166.4], [80.12, 150.8], [80.31, 149.3], [80.51, 126.7], [80.73, 69.3], [80.9, 48.3], [81.08, 57.6], [81.27, 99.8], [81.48, 101.6], [81.78, 95.1], [81.97, 87.7], [82.16, 78.9], [82.33, 75.3], [82.48, 73.2], [82.75, 79.3], [82.97, 96.0], [83.14, 115.7], [83.34, 133.8], [83.63, 146.5], [83.88, 153.4], [84.13, 157.4], [84.36, 158.3], [84.56, 153.0], [84.8, 136.5], [84.96, 118.1], [85.18, 103.2], [85.39, 91.6], [85.62, 80.7], [85.84, 75.0], [86.01, 78.7], [86.2, 92.6], [86.43, 108.4], [86.65, 127.0], [86.83, 144.2], [87.02, 154.0], [87.28, 164.0], [87.48, 172.9], [87.69, 150.1], [87.91, 127.8], [88.07, 107.0], [88.27, 91.9], [88.44, 84.9], [88.6, 78.9], [88.76, 76.4], [88.98, 74.4], [89.2, 79.0], [89.38, 93.7], [89.62, 112.4], [89.81, 131.8], [90.05, 146.1], [90.33, 153.3], [90.65, 157.0], [90.96, 158.4], [91.17, 144.9], [91.5, 124.8], [91.73, 101.2], [91.94, 89.3], [92.11, 80.6], [92.32, 73.9], [92.51, 77.5], [92.69, 89.5], [92.95, 111.7], [93.12, 130.8], [93.3, 148.1], [93.49, 153.7], [93.69, 159.8], [93.93, 169.2], [94.15, 167.8], [94.38, 159.0], [94.55, 147.1], [94.79, 141.5], [94.96, 123.1], [95.15, 110.0], [95.33, 125.4], [95.55, 119.6], [95.75, 129.2], [96.05, 111.4], [96.08, 115.3], [96.08, 123.9], [96.09, 130.2], [96.09, 130.0], [96.09, 121.2], [96.09, 116.2], [96.09, 106.6], [96.1, 107.6], [96.1, 107.7], [96.1, 98.8], [96.1, 95.4]]' data-xrange='[40,468]' data-trange='[0,96.10]' data-ytop="14" data-yh="206" data-ymin="20" data-ymax="180">
+<svg viewBox="0 0 560 250" role="img" aria-label="Elbow angle over 96 seconds dips 20 times below the peak line; 20 reps counted">
+<line x1="40" x2="468" y1="194.2" y2="194.2" stroke="rgba(255,255,255,.06)"/><text x="34" y="197.2" text-anchor="end">40°</text><line x1="40" x2="468" y1="142.8" y2="142.8" stroke="rgba(255,255,255,.06)"/><text x="34" y="145.8" text-anchor="end">80°</text><line x1="40" x2="468" y1="91.2" y2="91.2" stroke="rgba(255,255,255,.06)"/><text x="34" y="94.2" text-anchor="end">120°</text><line x1="40" x2="468" y1="39.8" y2="39.8" stroke="rgba(255,255,255,.06)"/><text x="34" y="42.8" text-anchor="end">160°</text><text x="40.0" y="240" text-anchor="middle">0s</text><text x="129.1" y="240" text-anchor="middle">20s</text><text x="218.1" y="240" text-anchor="middle">40s</text><text x="307.2" y="240" text-anchor="middle">60s</text><text x="396.3" y="240" text-anchor="middle">80s</text><line x1="40" x2="468" y1="61.7" y2="61.7" stroke="#d4a949" stroke-width="1.2" stroke-dasharray="6 4"/><text x="474" y="65.7" text-anchor="start" style="fill:#d4a949">rest line 143°</text><line x1="40" x2="468" y1="126.1" y2="126.1" stroke="#d4a949" stroke-width="1.2" stroke-dasharray="2 3"/><text x="474" y="130.1" text-anchor="start" style="fill:#d4a949">peak line 93°</text>
+<polyline points="40.0,45.3 40.6,42.3 41.1,45.8 41.5,43.7 42.0,39.9 42.5,38.2 43.2,39.8 43.7,39.1 44.2,37.1 44.6,38.7 45.0,38.9 45.5,38.5 46.0,38.3 46.4,36.1 46.9,39.0 47.4,41.1 47.9,40.9 48.2,41.0 48.6,41.5 49.1,42.4 49.4,42.8 49.8,39.5 50.3,37.7 50.8,37.1 51.2,36.4 51.6,36.2 52.2,35.9 52.9,35.9 53.5,38.3 53.9,39.5 54.3,37.4 54.7,36.1 55.3,35.2 55.8,34.8 56.2,34.5 56.6,34.4 57.3,34.6 57.6,34.8 58.1,37.2 58.6,35.5 59.1,38.2 59.5,40.4 59.8,41.3 60.3,41.4 60.8,41.1 61.3,38.3 61.6,38.1 62.1,36.9 62.6,34.2 63.1,37.5 63.6,36.4 64.1,36.1 64.4,34.9 64.9,34.3 65.4,37.8 65.8,38.5 66.2,40.1 66.7,37.7 67.1,39.6 67.5,39.8 67.9,39.8 68.5,41.8 69.0,40.1 69.6,39.3 70.1,38.0 70.4,40.3 70.8,38.8 71.2,38.6 71.8,38.1 72.2,39.2 72.4,41.1 73.0,41.6 73.4,42.2 73.9,43.1 74.4,41.2 74.9,39.6 75.3,39.1 75.8,38.8 76.2,40.8 76.6,43.4 77.2,48.6 77.5,58.7 77.9,68.4 78.4,79.5 78.9,90.1 79.4,108.4 79.9,117.0 80.5,126.6 80.9,132.2 81.3,137.8 81.9,143.4 82.3,145.6 82.8,145.6 83.3,147.6 83.9,145.3 84.3,135.7 84.8,125.5 85.3,113.5 85.8,104.4 87.1,90.0 88.0,69.5 91.3,61.2 92.0,83.4 94.4,101.7 95.1,141.7 95.6,168.8 96.5,182.4 97.2,157.7 98.0,123.2 98.6,90.5 99.6,69.1 100.1,51.8 101.2,41.0 101.7,34.1 102.5,29.7 102.8,28.3 103.3,25.4 123.6,26.3 124.1,29.9 124.6,32.0 125.0,32.0 125.3,30.5 125.8,29.8 126.1,27.7 126.5,28.6 126.9,26.7 127.4,27.0 127.7,25.3 128.1,26.3 128.5,27.6 129.0,25.3 129.3,24.0 129.8,23.9 130.6,25.3 131.3,25.7 131.8,26.3 132.2,26.4 132.6,24.8 133.0,22.5 133.4,22.3 133.7,22.6 134.0,23.9 136.8,22.6 137.2,20.4 137.6,19.3 138.2,19.0 138.6,18.1 139.2,17.2 139.6,18.6 140.0,19.2 140.4,23.1 141.0,26.2 141.6,30.7 142.1,62.5 142.5,85.1 142.8,102.4 143.2,114.9 143.7,114.5 144.1,117.6 144.6,161.1 145.1,182.5 145.6,194.8 146.0,176.3 146.3,145.3 146.6,100.8 146.9,101.7 147.3,87.9 147.7,84.4 148.1,71.7 148.5,61.3 149.3,48.0 149.7,37.7 150.0,29.9 150.5,25.2 150.8,22.1 151.3,33.0 151.9,40.1 152.3,37.5 152.8,39.9 153.2,37.5 153.8,37.4 154.2,38.8 154.6,38.1 155.3,38.5 155.7,38.3 156.3,38.1 156.7,36.1 157.3,36.0 157.6,35.8 158.0,35.9 158.3,36.0 158.8,35.9 159.3,36.0 159.7,35.9 160.1,36.4 160.5,38.4 161.1,38.6 161.4,40.7 161.9,39.3 162.3,39.6 162.8,39.3 163.1,40.1 163.5,38.5 163.9,38.5 164.5,40.6 164.8,40.4 165.3,40.4 165.9,40.8 166.4,41.4 166.7,40.7 167.2,39.5 167.7,40.9 168.3,40.4 168.9,39.7 169.3,40.3 169.7,39.6 170.1,39.2 170.7,40.1 171.1,39.7 171.5,39.0 172.2,39.0 172.6,39.3 172.9,39.6 173.4,38.2 173.9,39.2 174.3,39.6 174.6,40.2 175.0,39.9 175.4,39.2 175.8,39.8 176.5,38.5 177.0,37.7 177.2,37.8 177.7,38.2 178.3,38.1 178.7,37.5 179.1,37.6 179.4,37.2 179.7,38.6 180.1,40.3 180.6,40.4 180.9,40.7 181.5,40.8 181.9,40.8 182.5,40.0 183.0,40.5 183.4,39.2 183.9,39.4 184.4,40.4 184.8,40.7 185.1,39.9 185.8,39.5 186.1,39.1 186.5,38.3 187.0,37.4 187.5,37.3 187.8,36.2 188.3,36.8 188.8,37.8 189.2,37.2 189.6,37.2 190.0,39.5 190.5,40.7 190.9,40.2 191.5,40.3 191.9,39.3 192.3,39.3 192.7,38.0 193.1,36.9 193.5,35.5 193.9,35.3 194.2,34.3 194.8,35.4 195.1,35.4 195.5,35.2 195.8,35.9 196.3,36.9 196.6,38.5 197.0,37.2 197.3,37.1 197.8,36.3 198.1,37.3 198.5,37.9 198.9,38.6 199.3,37.5 199.8,37.9 200.2,37.5 200.6,38.0 201.2,37.8 201.6,39.1 201.9,41.6 202.3,51.6 202.9,65.3 203.3,75.3 203.7,90.8 204.2,101.8 204.8,111.7 205.1,119.7 205.8,128.2 206.3,133.6 206.7,135.2 207.2,138.4 207.6,137.1 207.9,140.8 208.6,141.9 209.1,140.9 209.5,139.8 210.0,140.1 210.2,140.0 210.6,141.0 210.9,140.7 211.2,140.4 211.6,140.0 212.1,141.8 212.5,142.6 213.1,141.4 213.5,143.6 213.9,145.4 214.4,147.6 214.9,150.2 215.3,152.5 215.7,153.1 216.2,151.1 216.7,147.0 217.1,140.4 217.7,128.5 218.2,117.9 218.6,104.7 219.1,90.9 219.5,79.8 219.9,71.7 220.2,59.8 220.9,53.0 221.3,49.7 221.8,45.8 222.3,43.6 222.7,41.8 223.1,41.6 223.7,42.9 224.0,41.0 224.5,44.1 225.0,47.8 225.5,56.3 225.8,65.8 226.2,73.9 226.7,86.0 227.0,98.1 227.6,109.2 228.0,116.1 228.4,126.8 228.7,132.5 229.1,138.5 229.3,144.5 229.8,147.2 230.2,149.6 230.6,152.7 231.2,150.6 231.6,146.5 232.1,141.6 232.5,130.8 233.0,121.0 233.3,111.1 233.8,98.9 234.3,85.7 234.7,71.4 235.2,62.7 235.5,54.8 236.0,50.8 236.5,47.7 236.8,43.5 237.4,34.6 237.8,30.8 238.2,40.2 238.5,38.1 239.1,52.0 239.4,69.1 239.9,83.9 240.4,74.5 240.7,89.4 241.1,75.3 241.4,83.5 241.9,102.5 242.5,116.0 243.0,128.0 243.4,133.5 243.8,136.8 244.2,139.1 244.9,138.0 245.3,132.8 245.7,120.6 246.1,111.1 246.6,101.2 246.9,91.2 247.3,77.8 247.8,70.1 248.3,61.3 248.6,56.0 249.2,52.6 249.6,48.7 249.9,44.9 250.3,44.6 250.6,42.9 251.3,44.6 251.7,45.0 252.3,44.7 252.8,43.9 253.2,52.7 253.7,60.9 254.2,70.5 254.9,82.6 255.2,95.1 255.6,111.2 256.0,119.2 256.6,126.0 257.1,131.7 257.5,138.5 257.9,143.4 258.4,146.8 258.8,146.7 259.4,146.7 259.9,141.9 260.2,136.9 260.4,126.8 261.0,120.8 261.5,106.2 261.9,94.8 262.4,81.5 262.8,72.2 263.1,61.0 263.8,55.2 264.3,50.9 264.8,49.6 265.2,38.0 265.6,31.8 265.9,26.2 266.3,24.6 266.7,42.1 267.1,49.3 267.6,59.9 267.9,75.6 268.5,90.7 268.9,101.5 269.2,109.8 269.9,118.9 270.4,127.0 270.8,133.0 271.2,137.7 271.6,143.2 272.1,146.7 272.5,148.3 272.9,148.1 273.3,145.2 273.8,141.3 274.3,135.1 274.7,124.3 275.1,114.5 275.6,102.3 276.2,93.4 276.6,83.2 277.1,72.8 277.8,63.3 278.3,57.7 278.6,52.8 279.3,49.2 279.9,45.7 280.4,44.3 281.2,42.5 281.5,42.3 281.9,46.2 282.3,51.9 282.9,62.4 283.3,69.9 283.7,81.9 284.2,91.8 284.5,101.5 284.9,111.5 285.4,120.3 285.8,123.8 286.3,133.2 286.7,138.8 287.1,141.9 287.6,145.5 288.1,146.5 288.4,143.6 288.9,141.8 289.4,136.7 290.0,126.0 290.4,112.1 290.8,96.5 291.3,84.1 291.7,71.9 292.1,62.8 292.9,57.0 293.9,51.4 295.1,39.2 295.7,42.8 296.4,38.8 297.0,41.9 298.4,50.7 299.0,93.0 299.4,139.7 299.9,168.2 300.4,186.1 300.9,198.9 301.2,205.6 301.6,193.7 302.3,151.3 302.7,117.6 303.2,90.1 303.6,69.1 304.0,54.5 304.5,44.1 304.9,36.1 305.4,31.4 305.8,28.0 306.2,23.6 306.8,20.8 307.2,20.7 307.6,20.2 307.9,19.2 311.9,19.4 312.2,39.1 312.8,50.8 313.3,64.5 313.8,77.6 314.4,102.5 314.8,113.6 315.2,124.5 315.9,130.3 316.4,136.2 316.7,141.5 317.4,145.6 317.8,145.5 318.3,146.3 318.7,145.5 319.2,143.9 319.6,142.7 319.9,136.7 320.3,125.3 320.8,111.6 321.1,99.5 321.4,87.7 322.0,78.1 322.4,69.4 322.7,59.8 323.3,54.3 324.0,47.9 324.5,42.7 324.9,42.8 325.3,41.9 325.7,41.0 326.1,40.6 326.7,42.3 327.1,41.5 327.7,50.6 328.2,56.1 328.5,68.0 328.9,78.1 329.3,88.4 329.8,104.2 330.2,113.3 330.6,120.6 331.1,124.3 331.5,131.6 332.0,137.0 332.5,142.7 333.0,143.5 333.3,147.2 333.8,146.0 334.3,140.6 334.6,136.9 335.2,131.7 335.7,117.5 336.1,99.8 336.5,87.4 336.9,73.3 337.4,64.2 337.8,57.4 338.4,53.1 338.8,47.9 339.3,45.0 339.7,42.9 340.1,50.8 340.5,59.8 340.8,68.5 341.3,76.8 341.6,87.9 342.1,96.1 342.5,113.0 342.8,120.5 343.2,126.8 343.7,132.7 344.2,136.9 344.6,141.2 345.1,143.4 345.7,144.8 346.1,145.7 346.6,145.4 347.0,142.5 347.6,139.2 347.9,125.8 348.3,117.6 349.0,106.9 349.4,94.0 349.9,81.7 350.4,71.0 351.0,61.3 351.5,54.7 352.0,49.8 352.4,45.4 352.9,45.4 353.4,42.6 354.0,43.3 354.5,43.1 354.8,42.4 355.2,45.7 355.6,53.5 356.2,60.6 356.6,70.1 357.2,84.9 357.7,94.8 358.0,109.8 358.5,127.7 359.1,130.6 359.5,135.8 360.1,141.6 360.5,144.8 360.9,147.3 361.2,148.8 361.6,146.5 362.3,143.6 362.7,135.0 363.1,124.4 363.5,114.0 364.0,98.5 364.5,85.0 365.0,74.1 365.5,62.9 365.8,56.3 366.3,51.6 366.7,45.2 367.1,51.7 367.6,56.8 368.1,62.4 368.7,77.5 369.1,90.9 369.4,102.4 370.0,118.9 370.4,125.7 370.9,129.7 371.5,133.8 371.9,138.4 372.3,142.0 372.8,145.3 373.2,147.9 373.6,149.9 374.1,147.7 374.7,145.6 375.1,135.3 375.6,125.3 376.2,113.5 376.7,97.0 377.2,85.0 377.7,71.8 378.2,61.4 378.6,54.1 379.2,49.7 379.6,46.6 379.9,44.3 380.6,45.4 381.0,41.4 381.4,40.1 381.8,41.1 382.3,40.5 382.8,45.9 383.1,52.9 383.7,62.7 384.2,72.0 384.6,84.0 385.1,99.7 385.5,111.6 386.0,122.8 386.5,129.5 386.9,136.7 387.2,138.9 387.7,142.9 388.0,145.4 388.5,147.1 389.0,148.3 389.5,144.4 390.2,139.5 390.9,128.5 391.4,110.9 391.7,93.4 392.2,80.7 392.6,67.6 393.0,57.8 393.5,52.8 394.0,49.3 394.5,45.8 395.0,45.0 395.6,36.8 396.0,31.5 396.5,32.9 396.8,51.6 397.3,50.0 397.7,53.5 398.2,56.4 398.6,82.6 399.1,115.1 399.5,156.6 399.8,175.5 400.3,183.5 400.7,194.0 401.1,171.7 401.5,138.6 402.0,117.2 402.4,111.1 402.9,115.0 403.7,118.0 404.2,123.3 404.6,128.8 405.1,132.8 405.5,139.0 405.9,144.1 406.3,146.1 406.7,148.8 407.1,150.3 407.3,151.4 408.0,146.7 408.5,143.6 409.1,131.1 409.5,122.1 409.9,109.0 410.3,96.8 410.7,85.5 411.2,73.5 411.8,64.7 412.5,57.1 413.1,51.8 413.6,48.3 414.3,45.6 414.7,43.1 415.2,42.6 415.7,41.9 416.2,42.1 416.6,48.8 417.3,57.9 417.7,70.0 418.0,80.6 418.4,93.7 418.9,103.6 419.4,112.9 419.8,121.0 420.3,127.8 420.9,136.4 421.3,141.8 421.9,145.9 422.3,149.2 422.8,147.0 423.1,144.5 423.6,134.7 423.9,126.6 424.3,118.5 424.9,106.2 425.3,95.2 425.9,82.2 426.1,68.3 426.7,60.1 427.1,54.7 427.5,47.5 428.3,45.2 428.7,34.6 429.2,27.8 429.6,23.2 430.2,37.0 430.5,52.5 431.0,66.1 431.5,81.2 431.9,94.8 432.2,108.0 432.7,118.4 433.1,127.5 433.5,133.8 433.9,136.4 434.2,139.9 434.6,144.2 435.0,145.2 435.3,147.4 436.0,149.3 436.3,149.9 436.7,146.3 437.2,144.0 437.6,132.7 438.1,125.1 438.6,116.3 439.1,101.0 439.6,85.5 440.0,76.1 440.5,66.0 441.0,57.7 441.6,51.5 442.3,48.4 442.8,45.1 443.7,43.6 444.4,42.7 445.1,41.8 445.6,49.2 446.0,59.1 447.1,68.1 447.5,85.1 447.9,100.6 448.5,115.5 449.1,123.7 449.4,130.8 449.8,137.3 450.2,142.0 450.6,148.0 451.1,150.7 451.5,150.6 452.0,146.0 452.5,143.0 452.8,130.5 453.6,117.8 454.0,102.0 454.3,89.0 454.7,77.4 455.2,63.2 455.5,55.0 456.1,50.7 456.3,47.9 456.8,45.4 457.2,40.0 457.9,31.0 458.3,27.9 458.9,29.1 459.3,29.6 459.9,34.4 460.3,41.0 460.8,51.2 461.1,56.4 461.7,64.6 462.2,63.5 462.5,70.6 462.9,87.2 463.3,98.1 463.7,104.1 464.1,90.5 464.5,84.3 464.9,82.6 465.5,91.8 465.9,87.6 466.4,79.4 467.0,92.5 467.8,102.3 467.9,109.8 467.9,97.3 467.9,93.5 467.9,86.2 467.9,84.5 467.9,78.1 467.9,77.3 467.9,78.4 467.9,78.0 467.9,89.7 468.0,96.8 468.0,96.1 468.0,103.1 468.0,108.4 468.0,97.2 468.0,107.2 468.0,114.8 468.0,107.1 468.0,113.2 468.0,118.5 468.0,121.4 468.0,122.9" fill="none" stroke="#7fae98" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="91.3" x2="91.3" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="100.1" x2="100.1" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="148.5" x2="148.5" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="220.2" x2="220.2" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="235.5" x2="235.5" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="248.3" x2="248.3" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="263.1" x2="263.1" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="278.3" x2="278.3" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="292.9" x2="292.9" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="304.0" x2="304.0" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="322.7" x2="322.7" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="337.8" x2="337.8" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="351.0" x2="351.0" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="365.8" x2="365.8" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="378.2" x2="378.2" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="393.0" x2="393.0" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="412.5" x2="412.5" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="426.7" x2="426.7" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="441.0" x2="441.0" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/><line x1="455.5" x2="455.5" y1="212" y2="218" stroke="#7fae98" stroke-width="2" stroke-linecap="round"/>
+<line class="cross" x1="0" x2="0" y1="14" y2="220" stroke="rgba(255,255,255,.35)" style="opacity:0"/>
+<circle class="cross-dot" r="4" fill="#7fae98" stroke="#0a0d0c" stroke-width="2" style="opacity:0"/>
+</svg>
+<details class="table-view"><summary>Rep completion times (20 reps)</summary><table><thead><tr><th>Rep</th><th>Completed at</th></tr></thead><tbody><tr><td>1</td><td>11.5 s</td></tr><tr><td>2</td><td>13.5 s</td></tr><tr><td>3</td><td>24.4 s</td></tr><tr><td>4</td><td>40.5 s</td></tr><tr><td>5</td><td>43.9 s</td></tr><tr><td>6</td><td>46.8 s</td></tr><tr><td>7</td><td>50.1 s</td></tr><tr><td>8</td><td>53.5 s</td></tr><tr><td>9</td><td>56.8 s</td></tr><tr><td>10</td><td>59.3 s</td></tr><tr><td>11</td><td>63.5 s</td></tr><tr><td>12</td><td>66.9 s</td></tr><tr><td>13</td><td>69.8 s</td></tr><tr><td>14</td><td>73.2 s</td></tr><tr><td>15</td><td>75.9 s</td></tr><tr><td>16</td><td>79.3 s</td></tr><tr><td>17</td><td>83.6 s</td></tr><tr><td>18</td><td>86.8 s</td></tr><tr><td>19</td><td>90.0 s</td></tr><tr><td>20</td><td>93.3 s</td></tr></tbody></table></details>
+</div>
+          </div>
+          <div class="phones">
+            <figure class="shot"><img src="assets/reprush-capture.jpg" alt="RepRush capture screen counting pull-ups with a skeleton overlay" width="520" height="925" loading="lazy"><figcaption>Capture screen</figcaption></figure>
+            <figure class="shot"><img src="assets/reprush-map.jpg" alt="RepRush territory map showing an owned hex" width="520" height="925" loading="lazy"><figcaption>Territory map</figcaption></figure>
+          </div>
+        </div>
+        <div>
+          <p class="label">Problem</p>
+          <p class="problem">Count reps and grade form from a phone propped up on the ground, with frame rates of 9–10 fps and noisy landmarks, and make the count trustworthy enough to score territory on.</p>
+          <p class="label">What I built</p>
+          <ul class="bul">
+            <li><strong>Signal pipeline:</strong> Google ML Kit pose landmarks → EMA smoothing → joint angle → a two-state REST/PEAK machine with hysteresis. Thresholds are offsets from each athlete's calibrated rest angle, and reps faster than 400 ms are rejected.</li>
+            <li><strong>Robustness:</strong> per-athlete calibration, left/right side selection by landmark confidence, presence and idle monitors, and a posture rule that rejects hand drops on pull-ups.</li>
+            <li><strong>Privacy contract:</strong> emits normalized evidence (angles, confidences, timestamps), never pixels and never a client-side score.</li>
+            <li><strong>Testability:</strong> the counting core is about 2,500 lines of pure Dart with no Flutter imports, so recorded traces replay in unit tests without a device.</li>
+          </ul>
+          <div class="nums">
+            <div class="num"><b>182</b><span>capture tests</span></div>
+            <div class="num"><b>105 reps</b><span>in 6 real phone recordings replayed in CI</span></div>
+            <div class="num"><b>7 / 7</b><span>hand drops rejected in one pull-up recording</span></div>
+          </div>
+          <div class="stack"><span>Dart</span><span>Flutter</span><span>Google ML Kit</span><span>Riverpod</span><span>Supabase</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- STRUGGLER -->
+    <article class="case fu" id="struggler">
+      <div class="case-head">
+        <div>
+          <span class="tag">1st place · AI Seekho 2026 · team lead, AI systems</span>
+          <h3 class="case-title">STRUGGLER: an LLM that designs the next level from how you played</h3>
+          <p class="case-sub">An adaptive 2D platformer where an AI "Architect" uses player telemetry to generate each level and adjust difficulty live. National winner at AI Seekho, run by Google for Developers, Telenor Velocity and Pakistan's Ministry of IT.</p>
+        </div>
+        <div class="links"><a href="https://github.com/UH-ALI/Struggler-overview">Overview →</a><span class="muted">Source private (team project)</span></div>
+      </div>
+      <div class="case-grid">
+        <div>
+          <p class="label">What I built</p>
+          <ul class="bul">
+            <li><strong>Pre-generation loop:</strong> deaths, damage taken, dodge accuracy and play style from level N go to Gemini 2.5 Flash, which returns a blueprint for level N+1.</li>
+            <li><strong>Validation:</strong> a breadth-first search checks every generated layout for solvability and repairs unreachable ones before the level loads.</li>
+            <li><strong>Live loop:</strong> enemy health and damage are tuned mid-level, with stale responses discarded when the player dies twice in quick succession.</li>
+            <li><strong>Security:</strong> all model calls go through a Cloud Functions relay to Vertex AI, so no API key ships in the client.</li>
+          </ul>
+          <div class="nums">
+            <div class="num"><b>PKR 1M</b><span>first prize, national final</span></div>
+            <div class="num"><b>44</b><span>unit tests</span></div>
+            <div class="num"><b>2</b><span>AI loops: between levels and live</span></div>
+          </div>
+          <div class="stack"><span>Flutter</span><span>Flame</span><span>Gemini 2.5 Flash</span><span>Vertex AI</span><span>Cloud Functions</span></div>
+        </div>
+        <div class="visual-stack">
+          <figure class="shot"><img src="assets/ai-seekho-win.jpg" alt="Receiving the AI Seekho 2026 National Vibe Champs cheque for PKR 1,000,000" width="1400" height="933" loading="lazy"><figcaption>Receiving the National Vibe Champs award, AI Seekho 2026.</figcaption></figure>
+          <ol class="flow" aria-label="Architect agent loop">
+            <li><b>Telemetry</b>deaths, damage, dodges</li>
+            <li class="hl"><b>Gemini 2.5 Flash</b>level N+1 blueprint</li>
+            <li><b>BFS validator</b>solvable? repair if not</li>
+            <li class="ok"><b>Cache</b>load at the portal</li>
+          </ol>
+        </div>
+      </div>
+    </article>
+
+    <!-- AQI -->
+    <article class="case fu" id="aqi">
+      <div class="case-head">
+        <div>
+          <span class="tag">10Pearls Data Science internship</span>
+          <h3 class="case-title">72-hour PM2.5 and AQI forecasts that retrain themselves</h3>
+          <p class="case-sub">Feature, training and inference pipelines for Delhi air quality, scheduled with GitHub Actions, with Hopsworks as the feature store and model registry.</p>
+        </div>
+        <div class="links"><a href="https://github.com/UH-ALI/air-quality-aqi-forecast">Code →</a></div>
+      </div>
+      <div class="case-grid flip">
+        <div class="visual-stack">
+          <ol class="flow" aria-label="AQI pipelines">
+            <li><b>Features · hourly</b>Open-Meteo + OpenWeather → Hopsworks</li>
+            <li class="hl"><b>Training · weekly</b>baseline, Ridge, RF, XGBoost → registry</li>
+            <li class="ok"><b>Inference · 6-hourly</b>recursive 72-h forecast</li>
+          </ol>
+          <div class="panel">
+            <h4>The bug I found and fixed: target leakage</h4>
+            <p class="cap">The rolling PM2.5 windows for hour <i>t</i> originally included PM2.5 at <i>t</i>, the value being predicted, so validation scored the model on information it never has when forecasting. The fix shifts every pollution feature to past hours only, and a test now fails if hour <i>t</i>'s inputs change when PM2.5 at <i>t</i> changes.</p>
+            <div class="tl-grid" role="img" aria-label="Rolling window before the fix includes the target hour; after the fix it ends one hour earlier">
+              <span></span><span class="h">t−5</span><span class="h">t−4</span><span class="h">t−3</span><span class="h">t−2</span><span class="h">t−1</span><span class="h">t</span>
+              <span class="rl">before</span><span class="cell in"></span><span class="cell in"></span><span class="cell in"></span><span class="cell in"></span><span class="cell in"></span><span class="cell bad"></span>
+              <span class="rl">after</span><span class="cell in"></span><span class="cell in"></span><span class="cell in"></span><span class="cell in"></span><span class="cell in"></span><span class="cell tgt"></span>
+            </div>
+            <p class="cap" style="padding-top:.6rem">Shown with a short window for illustration. Green: hours inside the rolling window. Red: the target leaking in. Dashed: the hour being predicted.</p>
+          </div>
+        </div>
+        <div>
+          <p class="label">What I built</p>
+          <ul class="bul">
+            <li><strong>Data:</strong> one year of hourly weather and pollution history, fetched in chunks with retries.</li>
+            <li><strong>Features:</strong> PM2.5, PM10 and temperature lags from 1 to 72 hours, rolling statistics, cyclical time, weather interactions.</li>
+            <li><strong>Models:</strong> a persistence baseline against Ridge, Random Forest and XGBoost on a chronological split, with SHAP attributions and automatic registry publishing.</li>
+            <li><strong>Evaluation:</strong> a rolling-origin backtest that replays the production 72-hour recursive forecaster on held-out weeks and reports error by horizon.</li>
+          </ul>
+          <div class="nums">
+            <div class="num"><b>2,000+</b><span>scheduled feature-pipeline runs</span></div>
+            <div class="num"><b>72 h</b><span>hourly forecast horizon</span></div>
+            <div class="num"><b>4</b><span>models compared each week</span></div>
+          </div>
+          <div class="stack"><span>Python</span><span>scikit-learn</span><span>XGBoost</span><span>SHAP</span><span>Hopsworks</span><span>GitHub Actions</span><span>Streamlit</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SABAQ -->
+    <article class="case fu" id="sabaq">
+      <div class="case-head">
+        <div>
+          <span class="tag">Independent project</span>
+          <h3 class="case-title">Sabaq: practice questions that are checked against the textbook</h3>
+          <p class="case-sub">Generates exam questions for Sindh Board Class 9 Biology from the textbook itself, rejects any question the source can't support, and gives feedback in English, Urdu or Roman Urdu.</p>
+        </div>
+        <div class="links"><a href="https://github.com/UH-ALI/Sabaq">Code →</a></div>
+      </div>
+      <div class="case-grid">
+        <div>
+          <p class="label">What I built</p>
+          <ul class="bul">
+            <li><strong>Retrieval:</strong> the textbook split into 132 passages, embedded with multilingual-e5 using its query/passage prefixes, searched by cosine similarity in FAISS.</li>
+            <li><strong>Generation and verification:</strong> Gemini writes questions only from retrieved passages, then a separate pass rejects anything the passage doesn't support.</li>
+            <li><strong>Grading:</strong> free-text answers are scored 0–10 with feedback naming what's missing compared with the textbook.</li>
+          </ul>
+          <div class="nums">
+            <div class="num"><b>132</b><span>indexed textbook passages</span></div>
+            <div class="num"><b>3</b><span>languages, including Roman Urdu</span></div>
+            <div class="num"><b>2-pass</b><span>generate, then verify</span></div>
+          </div>
+          <div class="stack"><span>Python</span><span>FAISS</span><span>sentence-transformers</span><span>Gemini</span><span>Streamlit</span></div>
+        </div>
+        <div class="visual-stack">
+          <figure class="shot"><img src="assets/sabaq-app.jpg" alt="Sabaq practice question generator interface" width="1600" height="696" loading="lazy"><figcaption>The question generator, set to Chapter 4: Cells and Tissues.</figcaption></figure>
+          <ol class="flow" aria-label="Sabaq pipeline">
+            <li><b>Retrieve</b>top passages for the chapter</li>
+            <li class="hl"><b>Generate</b>questions from passages only</li>
+            <li class="ok"><b>Verify</b>reject unsupported questions</li>
+          </ol>
+        </div>
+      </div>
+    </article>
+
+    <div class="mini-grid fu">
+      <div class="mini">
+        <span class="tag">Agent · independent project</span>
+        <h3 class="case-title" style="font-size:1.3rem">TaskBuster: an agent whose plan is checked before it runs</h3>
+        <ul class="bul" style="margin-top:.9rem">
+          <li>Gemini returns a typed plan; Pydantic checks step order, tool names against an allowlist, and references to earlier results before any tool runs.</li>
+          <li>Tools: web search (Tavily), calculator, math solver, and document QA over local MiniLM embeddings.</li>
+          <li>CI runs offline tests and gitleaks secret scanning.</li>
+        </ul>
+        <div class="links"><a href="https://github.com/UH-ALI/TaskBuster">Code →</a></div>
+      </div>
+      <div class="mini">
+        <span class="tag">Digital design</span>
+        <h3 class="case-title" style="font-size:1.3rem">AXI4-Lite to APB4 bridge and bus RTL</h3>
+        <ul class="bul" style="margin-top:.9rem">
+          <li>SystemVerilog bridge with separate control path and datapath, verified with a bus-functional model and an APB slave model.</li>
+          <li>AHB-Lite, AXI4-Lite and VGA controller designs, each with a self-checking testbench.</li>
+        </ul>
+        <div class="links"><a href="https://github.com/UH-ALI/axi4lite-to-apb4-bridge">Bridge →</a><a href="https://github.com/UH-ALI/RTL-Design">RTL designs →</a></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience" class="alt">
+<section id="experience">
   <div class="wrap">
-    <div class="sec-head">
-      <div><div class="sec-num">03 / Experience</div><h2 class="sec-title">Where I've worked</h2></div>
+    <div class="sec-head fu">
+      <div class="sec-num">02 · Experience</div>
+      <h2 class="sec-title">Where I've worked</h2>
     </div>
     <div class="tl">
       <div class="trow fu">
-        <div class="trow-head">
-          <div><div class="trole">Data Science Intern</div><div class="tco">10Pearls</div></div>
-          <div class="tdate">APR — JUN 2026</div>
-        </div>
-        <ul class="tbul">
-          <li>Built an AQI forecasting pipeline using Open-Meteo and OpenWeather APIs.</li>
-          <li>Automated retraining with GitHub Actions and managed features/models using Hopsworks.</li>
-          <li>Developed production-oriented MLOps workflows for experimentation and deployment.</li>
+        <div class="trow-head"><div><div class="trole">Data Science Intern</div><div class="tco">10Pearls · Shine program</div></div><div class="tdate">Apr – Jun 2026</div></div>
+        <ul class="bul" style="margin-top:.6rem">
+          <li>Built the AQI forecasting pipeline above on Open-Meteo and OpenWeather data.</li>
+          <li>Automated retraining with GitHub Actions; managed features and model versions in Hopsworks.</li>
         </ul>
       </div>
       <div class="trow fu">
-        <div class="trow-head">
-          <div><div class="trole">Academic Coordinator &amp; Tutor</div><div class="tco">The Learning Tribe</div></div>
-          <div class="tdate">2021 — PRESENT</div>
-        </div>
-        <ul class="tbul">
-          <li>Teach O/A-Level Mathematics and Computer Science.</li>
-          <li>Coordinate academic operations for 100+ students and a team of about 10 instructors.</li>
-          <li>Built and maintain the academy's website — <a href="https://github.com/UH-ALI/learning-tribe" style="color:var(--sig-l)">🔒 private repo, available on request</a></li>
+        <div class="trow-head"><div><div class="trole">Academic Coordinator &amp; Tutor</div><div class="tco">The Learning Tribe Academy</div></div><div class="tdate">2021 – present</div></div>
+        <ul class="bul" style="margin-top:.6rem">
+          <li>Teach O/A-Level Mathematics and Computer Science; promoted to Academic Coordinator in 2025.</li>
+          <li>Coordinate about 10 teachers and academic operations for 100–120+ students.</li>
         </ul>
       </div>
       <div class="trow fu">
-        <div class="trow-head">
-          <div><div class="trole">Mobile Development Trainee</div><div class="tco">Bano Qabil</div></div>
-          <div class="tdate">JUN — AUG 2024</div>
-        </div>
-        <ul class="tbul">
-          <li>Developed Flutter UI components for cross-platform mobile applications.</li>
-        </ul>
+        <div class="trow-head"><div><div class="trole">Mobile Development Trainee</div><div class="tco">Bano Qabil</div></div><div class="tdate">Jun – Aug 2024</div></div>
+        <ul class="bul" style="margin-top:.6rem"><li>Built Flutter UI components for cross-platform mobile apps.</li></ul>
       </div>
       <div class="trow fu">
-        <div class="trow-head">
-          <div><div class="trole">Research Intern</div><div class="tco">MERL Lab</div></div>
-          <div class="tdate">FEB — MAR 2024</div>
-        </div>
-        <ul class="tbul">
-          <li>Designed and simulated processor control and logic units on Xilinx Spartan-6 FPGA.</li>
-        </ul>
+        <div class="trow-head"><div><div class="trole">Research Intern</div><div class="tco">MERL Lab</div></div><div class="tdate">Feb – Mar 2024</div></div>
+        <ul class="bul" style="margin-top:.6rem"><li>Designed and simulated processor control and logic units for a Xilinx Spartan-6 FPGA.</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
+<section id="about" class="alt">
   <div class="wrap">
-    <div class="sec-head">
-      <div><div class="sec-num">04 / Selected work</div><h2 class="sec-title">Projects</h2></div>
-      <p class="sec-sub">A capstone, an agentic assistant, a forecasting dashboard, an explainability tool, and a security-education platform — the range behind the hackathon win.</p>
+    <div class="sec-head fu">
+      <div class="sec-num">03 · About</div>
+      <h2 class="sec-title">Education and recognition</h2>
     </div>
-
-    <div class="pcard fu">
-      <div class="p-photo tilt">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
-          <rect x="30" y="20" width="340" height="210" rx="6" fill="var(--surf)" stroke="var(--border)"/>
-          <rect x="46" y="36" width="308" height="178" rx="2" fill="var(--bg)"/>
-          <rect x="150" y="234" width="100" height="8" rx="2" fill="var(--border)"/>
-          <rect x="110" y="246" width="180" height="10" rx="2" fill="var(--surf2)" stroke="var(--border)"/>
-          <text x="62" y="54" font-family="monospace" font-size="8" fill="var(--ink-mute)">TRAINING WIZARD · STEP 2/3</text>
-          <rect x="62" y="64" width="140" height="70" rx="4" fill="var(--surf2)" stroke="var(--border)"/>
-          <text x="70" y="80" font-family="monospace" font-size="7" fill="var(--ink-mute)">DATASET</text>
-          <rect x="70" y="88" width="100" height="6" rx="2" fill="var(--sig-l)" opacity=".8"/>
-          <rect x="70" y="100" width="70" height="6" rx="2" fill="var(--sig-l)" opacity=".5"/>
-          <rect x="70" y="112" width="85" height="6" rx="2" fill="var(--sig-l)" opacity=".3"/>
-          <text x="70" y="128" font-family="monospace" font-size="6.5" fill="var(--sig-l)">✓ 4,120 examples generated</text>
-          <rect x="212" y="64" width="126" height="70" rx="4" fill="var(--surf2)" stroke="var(--border)"/>
-          <text x="220" y="80" font-family="monospace" font-size="7" fill="var(--ink-mute)">LoRA FINE-TUNE</text>
-          <path d="M220 122 L232 108 L244 116 L256 96 L268 104 L280 88 L292 100 L304 82 L316 92 L328 78" fill="none" stroke="var(--accent)" stroke-width="2"/>
-          <text x="220" y="130" font-family="monospace" font-size="6.5" fill="var(--accent)">loss ↓ · epoch 6/8</text>
-          <rect x="62" y="144" width="276" height="46" rx="4" fill="var(--surf2)" stroke="var(--border)"/>
-          <text x="70" y="158" font-family="monospace" font-size="7" fill="var(--ink-mute)">DEPLOY</text>
-          <rect x="70" y="166" width="110" height="16" rx="3" fill="rgba(127,174,152,.15)" stroke="var(--sig-l)"/>
-          <text x="125" y="177" text-anchor="middle" font-family="monospace" font-size="7" fill="var(--sig-l)">one-click widget</text>
-          <rect x="192" y="166" width="110" height="16" rx="3" fill="rgba(212,169,73,.12)" stroke="var(--accent)"/>
-          <text x="247" y="177" text-anchor="middle" font-family="monospace" font-size="7" fill="var(--accent)">RAG + vector DB</text>
-        </svg>
+    <div class="about">
+      <div class="visual-stack fu">
+        <figure class="shot"><img src="assets/campus.jpg" alt="Umair Ali on a campus balcony" width="1190" height="826" loading="lazy"></figure>
+        <figure class="shot"><img src="assets/certificate.jpg" alt="Umair Ali receiving a certificate of completion" width="1400" height="933" loading="lazy"><figcaption>Receiving the GIKI Advanced AI Bootcamp certificate, 2025.</figcaption></figure>
       </div>
-      <div class="p-body">
-        <span class="p-tag">Final Year Project · Team of 4</span>
-        <h3 class="p-title">No-Code SLM Studio</h3>
-        <p class="p-desc">An end-to-end platform that lets non-technical teams train, LoRA fine-tune, and deploy domain-specific Small Language Models without writing code — closing the gap between "we need a custom assistant" and having the ML infrastructure to build one.</p>
-        <ul class="p-list">
-          <li>No-code training wizard with automatic dataset generation</li>
-          <li>LoRA fine-tuning on B2B-sized GPUs, with a live training dashboard</li>
-          <li>RAG pipelines with vector-database-backed retrieval and one-click widget deployment</li>
-        </ul>
-        <div class="p-stack"><span>Python</span><span>LoRA</span><span>RAG</span><span>Vector DB</span></div>
-        <div style="display:flex;gap:1.4rem;flex-wrap:wrap">
-          <a href="https://youtu.be/X7gBo-rPkks" class="p-link">▶ Watch demo →</a>
-          <a href="https://github.com/UH-ALI/SLM-STUDIO" class="p-link">🔒 Private repo — request access</a>
+      <div class="fu">
+        <p>I graduated in July 2026 with a BS in Computer Science from <strong>DHA Suffa University, Karachi</strong>, with a CGPA of 3.89/4.00. My work sits where language models meet the systems around them: data preparation, retrieval, fine-tuning, evaluation, and the pipelines that keep it running.</p>
+        <p>I've taught O/A-Level Mathematics and Computer Science since 2021. Teaching is why my READMEs explain trade-offs and limitations instead of listing features: if I can't explain why a system works, I don't trust that it does.</p>
+        <div class="cred">
+          <div><i>2026</i><p><b>BS Computer Science · DHA Suffa University</b><span>CGPA 3.89 / 4.00</span></p></div>
+          <div><i>2026</i><p><b>1st place · AI Seekho, Google Antigravity Hackathon</b><span>Google for Developers · Telenor Velocity · Ministry of IT &amp; Telecom</span></p></div>
+          <div><i>2026</i><p><b>Generative &amp; Agentic AI Training · HEC-NCEAC &amp; PEC</b><span>Cohort 11</span></p></div>
+          <div><i>2025</i><p><b>Advanced AI Bootcamp · GIKI</b><span>Transformer fine-tuning, computer vision, generative models, MLOps</span></p></div>
+          <div><i>—</i><p><b>Machine Learning Specialization · Andrew Ng (Coursera)</b><span>Plus Intermediate Python (DataCamp)</span></p></div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="pcard reverse fu">
-      <div class="p-photo tilt">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
-          <rect x="30" y="20" width="340" height="210" rx="6" fill="var(--surf)" stroke="var(--border)"/>
-          <rect x="46" y="36" width="308" height="178" rx="2" fill="var(--bg)"/>
-          <rect x="150" y="234" width="100" height="8" rx="2" fill="var(--border)"/>
-          <rect x="110" y="246" width="180" height="10" rx="2" fill="var(--surf2)" stroke="var(--border)"/>
-          <circle cx="200" cy="70" r="16" fill="none" stroke="var(--accent)" stroke-width="2"/>
-          <text x="200" y="75" text-anchor="middle" font-family="monospace" font-size="10" fill="var(--accent)">Q</text>
-          <line x1="200" y1="86" x2="200" y2="104" stroke="var(--ink-mute)" stroke-width="1.5"/>
-          <path d="M200 104 L120 104 M200 104 L200 104 M200 104 L280 104" stroke="var(--ink-mute)" stroke-width="1.5" fill="none"/>
-          <line x1="120" y1="104" x2="90" y2="104" stroke="var(--ink-mute)" stroke-width="1.5"/>
-          <line x1="120" y1="104" x2="150" y2="104" stroke="var(--ink-mute)" stroke-width="1.5"/>
-          <line x1="280" y1="104" x2="250" y2="104" stroke="var(--ink-mute)" stroke-width="1.5"/>
-          <line x1="280" y1="104" x2="310" y2="104" stroke="var(--ink-mute)" stroke-width="1.5"/>
-          <line x1="90" y1="104" x2="90" y2="130" stroke="var(--sig-l)" stroke-width="1.5"/>
-          <line x1="150" y1="104" x2="150" y2="130" stroke="var(--ink-mute)" stroke-width="1.5"/>
-          <line x1="250" y1="104" x2="250" y2="130" stroke="var(--ink-mute)" stroke-width="1.5"/>
-          <line x1="310" y1="104" x2="310" y2="130" stroke="var(--ink-mute)" stroke-width="1.5"/>
-          <rect x="66" y="130" width="48" height="28" rx="3" fill="rgba(127,174,152,.14)" stroke="var(--sig-l)"/>
-          <text x="90" y="148" text-anchor="middle" font-family="monospace" font-size="7.5" fill="var(--sig-l)">SEARCH</text>
-          <rect x="126" y="130" width="48" height="28" rx="3" fill="var(--surf2)" stroke="var(--border)"/>
-          <text x="150" y="148" text-anchor="middle" font-family="monospace" font-size="8" fill="var(--ink-mute)">RAG</text>
-          <rect x="226" y="130" width="48" height="28" rx="3" fill="var(--surf2)" stroke="var(--border)"/>
-          <text x="250" y="148" text-anchor="middle" font-family="monospace" font-size="8" fill="var(--ink-mute)">CALC</text>
-          <rect x="286" y="130" width="48" height="28" rx="3" fill="var(--surf2)" stroke="var(--border)"/>
-          <text x="310" y="148" text-anchor="middle" font-family="monospace" font-size="7.5" fill="var(--ink-mute)">MATH</text>
-          <path d="M90 158 L90 178 L200 178" stroke="var(--sig-l)" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
-          <circle cx="200" cy="178" r="3" fill="var(--sig-l)"/>
-          <text x="60" y="200" font-family="monospace" font-size="8" fill="var(--ink-mute)">→ routed: web_search()</text>
-        </svg>
-      </div>
-      <div class="p-body">
-        <span class="p-tag">Agentic AI · Solo build</span>
-        <h3 class="p-title">TaskBuster — Agentic AI Assistant</h3>
-        <p class="p-desc">An assistant that decides which tool a query actually needs — web search, RAG over documents, a calculator, or a math solver — instead of routing everything through one generic model call.</p>
-        <ul class="p-list">
-          <li>Decision layer classifies intent first, then routes to the matching tool — not a single-shot prompt trying to do everything</li>
-          <li>Custom orchestration layer for multi-tool query routing</li>
-          <li>Streamlit interface built for non-technical end users</li>
-        </ul>
-        <div class="p-stack"><span>Python</span><span>Tool-Calling</span><span>RAG</span><span>Streamlit</span></div>
-        <a href="https://github.com/UH-ALI/TaskBuster-AI-main" class="p-link">View on GitHub →</a>
-      </div>
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head fu">
+      <div class="sec-num">04 · Skills</div>
+      <h2 class="sec-title">Tools, and where I've used them</h2>
     </div>
-
-    <div class="pcard fu">
-      <div class="p-photo tilt">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
-          <rect x="30" y="20" width="340" height="210" rx="6" fill="var(--surf)" stroke="var(--border)"/>
-          <rect x="46" y="36" width="308" height="178" rx="2" fill="var(--bg)"/>
-          <rect x="150" y="234" width="100" height="8" rx="2" fill="var(--border)"/>
-          <rect x="110" y="246" width="180" height="10" rx="2" fill="var(--surf2)" stroke="var(--border)"/>
-          <text x="62" y="54" font-family="monospace" font-size="8" fill="var(--ink-mute)">AQI · 72H FORECAST</text>
-          <line x1="62" y1="190" x2="62" y2="66" stroke="var(--border)" stroke-width="1"/>
-          <line x1="62" y1="190" x2="338" y2="190" stroke="var(--border)" stroke-width="1"/>
-          <line x1="62" y1="150" x2="338" y2="150" stroke="var(--border)" stroke-width="1" stroke-dasharray="2 4"/>
-          <text x="342" y="153" font-family="monospace" font-size="7" fill="var(--accent)">alert</text>
-          <path d="M62 178 L100 172 L138 176 L176 158 L214 165 L252 140 L290 148 L338 118" fill="none" stroke="var(--sig-l)" stroke-width="2.5"/>
-          <path d="M62 178 L100 172 L138 176 L176 158 L214 165 L252 140 L290 148 L338 118 L338 190 L62 190 Z" fill="url(#aqiGrad)" opacity=".5"/>
-          <defs>
-            <linearGradient id="aqiGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="var(--sig-l)" stop-opacity=".35"/>
-              <stop offset="100%" stop-color="var(--sig-l)" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <circle cx="252" cy="140" r="4" fill="var(--accent)"/>
-          <circle cx="290" cy="148" r="3" fill="var(--sig-l)"/>
-          <circle cx="338" cy="118" r="3" fill="var(--sig-l)"/>
-          <text x="230" y="130" font-family="monospace" font-size="7" fill="var(--accent)">hazard window</text>
-        </svg>
-      </div>
-      <div class="p-body">
-        <span class="p-tag">MLOps · Internship-adjacent build</span>
-        <h3 class="p-title">AQI Forecast System</h3>
-        <p class="p-desc">An interactive dashboard that predicts air quality 72 hours out and flags hazardous-air windows before they hit — the applied counterpart to the retraining pipeline built at 10Pearls.</p>
-        <ul class="p-list">
-          <li>72-hour AQI prediction with hazardous-air alerting</li>
-          <li>Scheduled retraining via GitHub Actions, features managed in Hopsworks</li>
-        </ul>
-        <div class="p-stack"><span>Streamlit</span><span>Pandas</span><span>Hopsworks</span><span>GitHub Actions</span></div>
-        <a href="https://github.com/UH-ALI/air-quality-aqi-forecast" class="p-link">View on GitHub →</a>
-      </div>
-    </div>
-
-    <div class="pcard reverse fu">
-      <div class="p-photo tilt">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
-          <rect x="30" y="20" width="340" height="210" rx="6" fill="var(--surf)" stroke="var(--border)"/>
-          <rect x="46" y="36" width="308" height="178" rx="2" fill="var(--bg)"/>
-          <rect x="150" y="234" width="100" height="8" rx="2" fill="var(--border)"/>
-          <rect x="110" y="246" width="180" height="10" rx="2" fill="var(--surf2)" stroke="var(--border)"/>
-          <text x="62" y="55" font-family="monospace" font-size="8" fill="var(--ink-mute)">FEATURE IMPORTANCE (SHAP)</text>
-          <g font-family="monospace" font-size="7.5" fill="var(--ink-mute)">
-            <text x="62" y="80">age</text>
-            <text x="62" y="98">income</text>
-            <text x="62" y="116">tenure</text>
-            <text x="62" y="134">usage_freq</text>
-            <text x="62" y="152">support_tix</text>
-          </g>
-          <rect x="120" y="70" width="150" height="10" rx="2" fill="var(--sig-l)"/>
-          <rect x="120" y="88" width="95" height="10" rx="2" fill="var(--accent)"/>
-          <rect x="120" y="106" width="60" height="10" rx="2" fill="var(--sig-l)" opacity=".7"/>
-          <rect x="120" y="124" width="40" height="10" rx="2" fill="var(--ink-mute)" opacity=".6"/>
-          <line x1="120" y1="66" x2="120" y2="160" stroke="var(--border)" stroke-width="1"/>
-          <text x="120" y="175" font-family="monospace" font-size="7" fill="var(--ink-mute)">0.0</text>
-          <text x="270" y="175" font-family="monospace" font-size="7" fill="var(--ink-mute)">+impact</text>
-        </svg>
-      </div>
-      <div class="p-body">
-        <span class="p-tag">Explainable ML · Web app</span>
-        <h3 class="p-title">SHAP-Based Model Explainer</h3>
-        <p class="p-desc">A web app that pairs a classification model's predictions with live SHAP visualizations, so non-technical stakeholders can see <em>why</em> the model made a call, not just what it predicted.</p>
-        <ul class="p-list">
-          <li>Per-prediction feature-importance breakdowns rendered as interactive charts</li>
-          <li>Built for reviewers without an ML background to audit model behavior directly</li>
-        </ul>
-        <div class="p-stack"><span>Python</span><span>SHAP</span><span>Scikit-learn</span><span>Streamlit</span></div>
-        <a href="https://github.com/UH-ALI" class="p-link">View on GitHub →</a>
-      </div>
-    </div>
-
-    <div class="pcard fu">
-      <div class="p-photo tilt">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
-          <rect x="30" y="20" width="340" height="210" rx="6" fill="var(--surf)" stroke="var(--border)"/>
-          <rect x="46" y="36" width="308" height="178" rx="2" fill="var(--bg)"/>
-          <rect x="150" y="234" width="100" height="8" rx="2" fill="var(--border)"/>
-          <rect x="110" y="246" width="180" height="10" rx="2" fill="var(--surf2)" stroke="var(--border)"/>
-          <text x="62" y="55" font-family="monospace" font-size="8" fill="#e0724a">$ SELECT * FROM products WHERE...</text>
-          <rect x="62" y="66" width="276" height="26" rx="3" fill="rgba(224,114,74,.1)" stroke="#e0724a" stroke-dasharray="2 3"/>
-          <text x="70" y="83" font-family="monospace" font-size="7.5" fill="#e0724a">UNION SELECT user,pass FROM users --</text>
-          <text x="62" y="108" font-family="monospace" font-size="7.5" fill="var(--ink-mute)">↓ vulnerable mode: string-concatenated query</text>
-          <line x1="200" y1="118" x2="200" y2="132" stroke="var(--ink-mute)" stroke-width="1"/>
-          <rect x="62" y="136" width="276" height="26" rx="3" fill="rgba(127,174,152,.1)" stroke="var(--sig-l)"/>
-          <text x="70" y="153" font-family="monospace" font-size="7.5" fill="var(--sig-l)">?q = %s  (bound parameter, no match)</text>
-          <text x="62" y="178" font-family="monospace" font-size="7.5" fill="var(--sig-l)">✓ secure mode: identical payload neutralized</text>
-        </svg>
-      </div>
-      <div class="p-body">
-        <span class="p-tag">Security Education · Open Source</span>
-        <h3 class="p-title">OWASP Teardown Labs</h3>
-        <p class="p-desc">A deliberately vulnerable teaching platform — each lab pairs a broken implementation with a working exploit and its fix, so you attack the flaw, flip to the secure code path, and watch the behavior change side by side.</p>
-        <ul class="p-list">
-          <li>SQL Injection lab fully implemented: a UNION-based payload dumps the users table via the product search endpoint, then the same payload is replayed against the parameterized query and matches nothing</li>
-          <li>FastAPI + React platform with a "what changed" diff view and a one-command CLI exploit runner</li>
-          <li>IDOR, Broken Auth, and Stored XSS labs scaffolded to the same contract for future contributors</li>
-        </ul>
-        <div class="p-stack"><span>Python</span><span>FastAPI</span><span>React</span><span>SQLite</span><span>Pytest</span></div>
-        <a href="https://github.com/UH-ALI" class="p-link">View on GitHub →</a>
-      </div>
+    <div class="skills fu">
+      <div class="sk"><h3>LLMs &amp; retrieval</h3><ul>
+        <li>QLoRA / LoRA (Unsloth, PEFT)<span>SLM Studio</span></li>
+        <li>ChromaDB, FAISS<span>SLM Studio, Sabaq</span></li>
+        <li>sentence-transformers<span>SLM Studio, Sabaq, TaskBuster</span></li>
+        <li>Gemini API, Vertex AI<span>STRUGGLER, Sabaq</span></li>
+        <li>Validated tool calls (Pydantic)<span>TaskBuster</span></li>
+      </ul></div>
+      <div class="sk"><h3>ML &amp; vision</h3><ul>
+        <li>PyTorch<span>SLM Studio</span></li>
+        <li>scikit-learn, XGBoost<span>AQI</span></li>
+        <li>SHAP<span>AQI</span></li>
+        <li>Pose estimation (ML Kit)<span>RepRush</span></li>
+        <li>Signal processing, state machines<span>RepRush</span></li>
+      </ul></div>
+      <div class="sk"><h3>MLOps &amp; backend</h3><ul>
+        <li>Hopsworks feature store, registry<span>AQI</span></li>
+        <li>GitHub Actions<span>AQI, TaskBuster</span></li>
+        <li>FastAPI, Celery, Redis<span>SLM Studio</span></li>
+        <li>PostgreSQL, Supabase<span>SLM Studio, RepRush</span></li>
+        <li>Docker<span>SLM Studio</span></li>
+      </ul></div>
+      <div class="sk"><h3>Languages &amp; apps</h3><ul>
+        <li>Python<span>most projects</span></li>
+        <li>Dart, Flutter<span>RepRush, STRUGGLER</span></li>
+        <li>SQL<span>SLM Studio</span></li>
+        <li>SystemVerilog<span>bus RTL</span></li>
+        <li>C++<span>coursework</span></li>
+      </ul></div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="alt">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><div class="sec-num">05 / Toolkit</div><h2 class="sec-title">Skills</h2></div>
-    </div>
-    <div class="skills-grid">
-      <div class="skcat fu"><div class="skcat-title">Languages</div><div class="sktags"><span>Python</span><span>SQL</span><span>C++</span><span>Dart</span></div></div>
-      <div class="skcat fu"><div class="skcat-title">ML / AI</div><div class="sktags"><span>PyTorch</span><span>Scikit-learn</span><span>OpenCV</span><span>YOLOv11</span><span>Pandas</span><span>SHAP</span></div></div>
-      <div class="skcat fu"><div class="skcat-title">Generative AI</div><div class="sktags"><span>RAG</span><span>LoRA</span><span>Tool-Calling</span><span>Vector DBs</span><span>Prompt Engineering</span></div></div>
-      <div class="skcat fu"><div class="skcat-title">MLOps</div><div class="sktags"><span>GitHub Actions</span><span>Hopsworks</span><span>CI/CD</span><span>Streamlit</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CREDENTIALS -->
-<section id="cred">
-  <div class="wrap">
-    <div class="cred-photo fu tilt"><img src="assets/umair-award.jpg" alt="Umair Ali receiving a certificate"></div>
-    <div class="fu">
-      <div class="sec-num" style="margin-bottom:.5rem">06 / Credentials</div>
-      <h2 class="sec-title" style="margin-bottom:2rem">Education &amp; recognition</h2>
-      <div class="cred-list">
-        <div class="cred-item"><div class="cred-mk">2026</div><div><b>BS Computer Science — DHA Suffa University</b><span>CGPA 3.89 / 4.00 · Graduated July 2026</span></div></div>
-        <div class="cred-item"><div class="cred-mk">2026</div><div><b>1st Place — AI Seekho, Google Antigravity Hackathon</b><span>Google for Developers · Telenor Velocity · Ministry of IT &amp; Telecom, Pakistan</span></div></div>
-        <div class="cred-item"><div class="cred-mk">2025</div><div><b>Full-Stack AI Bootcamp: ML to LLMs — GIKI</b><span>4-week intensive by SkyLabs AI · TensorFlow, Transformer fine-tuning (GPT/BERT/Whisper), computer vision &amp; generative AI (YOLO, DALL·E), GANs/diffusion/CLIP/BLIP/VQA, MLOps with Git, Docker &amp; MLflow · Jul–Aug 2025</span></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <div class="sec-num" style="text-align:center;margin-bottom:.6rem">07 / Contact</div>
-    <h2 class="sec-title">Let's build something<br>that ships.</h2>
-    <p style="color:var(--ink-dim);max-width:460px;margin:1.2rem auto 0;font-size:.95rem">Open to Junior AI/ML Engineer roles — remote or on-site in Karachi.</p>
+<section id="contact" class="alt">
+  <div class="wrap fu">
+    <div class="sec-num">05 · Contact</div>
+    <h2 class="sec-title">Hiring for an AI/ML engineer?</h2>
+    <p class="sec-sub" style="margin:0 auto;max-width:520px">I'm looking for AI/ML engineering roles, remote or in Karachi. The fastest way to reach me is email.</p>
     <div class="contact-links">
-      <a href="mailto:umairalih6@gmail.com" class="clink">✉ umairalih6@gmail.com</a>
-      <a href="https://www.linkedin.com/in/hafiz-umair-ali/" class="clink">LinkedIn</a>
-      <a href="https://github.com/UH-ALI" class="clink">GitHub</a>
-      <a href="tel:+923330252716" class="clink">+92 333 0252716</a>
+      <a href="mailto:umairalih6@gmail.com" class="btn primary">umairalih6@gmail.com</a>
+      <a href="https://www.linkedin.com/in/hafiz-umair-ali/" class="btn">LinkedIn</a>
+      <a href="https://github.com/UH-ALI" class="btn">GitHub</a>
+      <a href="assets/Hafiz_Umair_Ali_Resume.pdf" class="btn">Résumé (PDF)</a>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <span>Hafiz Muhammad Umair Ali · Karachi, Pakistan</span>
   <span>© 2026</span>
 </footer>
 
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
 <script>
-const revObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); revObs.unobserve(e.target); } });
-},{threshold:.12});
-document.querySelectorAll('.fu').forEach(el=>revObs.observe(el));
+document.body.classList.remove('no-js');
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+}), { threshold: .08 });
+document.querySelectorAll('.fu').forEach(el => io.observe(el));
 
-// 3D tilt-on-hover for photos and project graphics
-if(!('ontouchstart' in window)){
-  document.querySelectorAll('.tilt').forEach(el=>{
-    const strength = 10; // max rotation in degrees
-    el.addEventListener('mousemove', e=>{
-      const r = el.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width;   // 0..1
-      const py = (e.clientY - r.top) / r.height;   // 0..1
-      const rotY = (px - .5) * strength * 2;
-      const rotX = (.5 - py) * strength * 2;
-      el.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.025,1.025,1.025)`;
-      el.style.setProperty('--glare', (0.14 - Math.abs(px-.5)*0.1).toFixed(2));
-    });
-    el.addEventListener('mouseleave', ()=>{
-      el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
-      el.style.setProperty('--glare', 0);
-    });
-  });
-}
+const burger = document.getElementById('burgerBtn');
+const links = document.getElementById('navLinks');
+const setMenu = open => {
+  links.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  burger.textContent = open ? '✕' : '☰';
+};
+burger.addEventListener('click', () => setMenu(!links.classList.contains('open')));
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 
-// Mobile nav toggle
-const burgerBtn = document.getElementById('burgerBtn');
-const navLinksEl = document.getElementById('navLinks');
-burgerBtn.addEventListener('click', ()=>{
-  const isOpen = navLinksEl.classList.toggle('open');
-  burgerBtn.setAttribute('aria-expanded', isOpen);
-  burgerBtn.textContent = isOpen ? '✕' : '☰';
+// Chart hover: tooltip for bars, crosshair + tooltip for the angle line.
+const tip = document.getElementById('tip');
+const showTip = (text, x, y) => { tip.textContent = text; tip.style.left = x + 'px'; tip.style.top = y + 'px'; tip.classList.add('on'); };
+const hideTip = () => tip.classList.remove('on');
+tip.style.position = 'fixed';
+
+document.querySelectorAll('[data-tip]').forEach(el => {
+  el.addEventListener('mousemove', e => showTip(el.dataset.tip, e.clientX, e.clientY));
+  el.addEventListener('mouseleave', hideTip);
 });
-navLinksEl.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
-  navLinksEl.classList.remove('open');
-  burgerBtn.setAttribute('aria-expanded','false');
-  burgerBtn.textContent = '☰';
-}));
 
+const line = document.getElementById('pushupChart');
+if (line) {
+  const svg = line.querySelector('svg');
+  const pts = JSON.parse(line.dataset.points);
+  const [x0, x1] = JSON.parse(line.dataset.xrange);
+  const [t0, t1] = JSON.parse(line.dataset.trange);
+  const cross = svg.querySelector('.cross'), dot = svg.querySelector('.cross-dot');
+  const yOf = a => +line.dataset.ytop + (+line.dataset.ymax - a) / (+line.dataset.ymax - +line.dataset.ymin) * +line.dataset.yh;
+  svg.addEventListener('mousemove', e => {
+    const r = svg.getBoundingClientRect();
+    const vx = (e.clientX - r.left) / r.width * svg.viewBox.baseVal.width;
+    if (vx < x0 || vx > x1) { hideTip(); cross.style.opacity = 0; dot.style.opacity = 0; return; }
+    const t = t0 + (vx - x0) / (x1 - x0) * (t1 - t0);
+    let best = pts[0];
+    for (const p of pts) if (Math.abs(p[0] - t) < Math.abs(best[0] - t)) best = p;
+    const px = x0 + (best[0] - t0) / (t1 - t0) * (x1 - x0);
+    cross.setAttribute('x1', px); cross.setAttribute('x2', px); cross.style.opacity = 1;
+    dot.setAttribute('cx', px); dot.setAttribute('cy', yOf(best[1])); dot.style.opacity = 1;
+    showTip(`${best[0].toFixed(1)} s · ${best[1].toFixed(0)}°`, e.clientX, e.clientY);
+  });
+  svg.addEventListener('mouseleave', () => { hideTip(); cross.style.opacity = 0; dot.style.opacity = 0; });
+}
 </script>
 </body>
 </html>
