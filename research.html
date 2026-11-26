@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research · Umair Ali</title>
+<meta name="description" content="Fine-Tuning Within Reach: no-code domain adaptation of small language models on a single 8 GB consumer GPU. Manuscript in preparation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a href="index.html" class="name">Umair Ali</a>
+    <nav>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#teaching">Teaching</a>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="assets/Umair_Ali_AI_Engineer_Resume.pdf">Résumé</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="wrap paper-head hero">
+  <p class="kicker">Research</p>
+  <h1>Fine-Tuning Within Reach: No-Code Domain Adaptation of Small Language Models on a Single 8&nbsp;GB Consumer GPU</h1>
+  <p>H. M. U. Ali, M. Saleem, A. F. Ahmed, D. Subash · Department of Computer Science, DHA Suffa University</p>
+  <p class="status">Manuscript in preparation · not yet submitted</p>
+  <p class="actions"><a href="https://github.com/UH-ALI/SLM-Studio">Code</a><a href="mailto:umairalih6@gmail.com?subject=Fine-Tuning%20Within%20Reach%20draft">Ask me for the draft</a><a href="index.html#work">The project</a></p>
+</section>
+
+<section class="wrap">
+  <h2><span class="num">01</span> In short</h2>
+  <div class="abstract">
+    <p class="lead">Adapting a language model to an organisation's own documents is usually assumed to need data-centre GPUs, machine-learning staff or a paid API. We describe SLM Studio, an open-source system that takes a user from uploaded documents to a deployed, citation-grounded assistant on one 8&nbsp;GB graphics card, without writing code.</p>
+    <p>The paper makes three contributions: the system and why it's built the way it is; a memory budget, worked out from each model's published configuration, that explains why 4-bit QLoRA training of 1.7B–4B models fits in 8&nbsp;GB; and a pilot run on an NVIDIA RTX 5060. It is a systems paper. It says plainly what it does not yet show.</p>
+    <p class="dim">My part: with Muhammad Saleem, I designed and built model selection, fine-tuning and retrieval, and wrote the paper. Aarish Farhan Ahmed and Darshan Subash built the backend services, task queue and deployment.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2><span class="num">02</span> One PC, one GPU</h2>
+  <div class="case-grid">
+    <div class="prose">
+      <p>Everything runs on a single desktop. The web app and the training worker take turns on the GPU: a flag in Redis says whether the card is idle, training or serving, and chat requests wait in a queue instead of crashing while a model trains.</p>
+      <p>Only one 4-bit base model sits on the GPU at a time. Each assistant is a small LoRA adapter attached to it when that assistant is asked a question, so adding an assistant costs megabytes of disk, not another GPU.</p>
+      <p>One step still leaves the machine: a hosted 70B model writes the training questions. For documents that must never leave the building, that step has to move on-device first.</p>
+    </div>
+    <figure class="figure-card">
+      <img src="assets/research/slm-architecture.png" alt="Architecture diagram: Next.js frontend, FastAPI, PostgreSQL, ChromaDB, Redis and a Celery worker on one PC, sharing an RTX 5060 with a cached 4-bit base model and per-project LoRA adapters. Only training-pair generation calls the external Groq API." loading="lazy" width="1340" height="800">
+    </figure>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2><span class="num">03</span> Why it fits in 8 GB</h2>
+  <p class="abstract">The parts of training you can count in advance, per model, drawn to scale against the 8&nbsp;GB card. For Qwen3-1.7B we also measured the real peak: the rest is activations, temporary buffers and allocator overhead.</p>
+  <div class="budget reveal membar" style="background:none;padding:0;margin-top:1.5rem">
+    <div class="row">
+      <div class="label"><b>Qwen3-1.7B</b><span>rank 16 · counted 2.73 GB · measured peak 5.4 GB</span></div>
+      <div class="bar">
+        <span class="seg s1" style="--w:8.75%"></span><span class="seg s2" style="--w:7.75%"></span><span class="seg s3" style="--w:2.1%"></span><span class="seg s4" style="--w:15.5%"></span><span class="seg s5" style="--w:33.4%"><i>measured extra 2.67</i></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="label"><b>Qwen3-4B</b><span>rank 32 · counted 4.48 GB</span></div>
+      <div class="bar">
+        <span class="seg s1" style="--w:22.5%"></span><span class="seg s2" style="--w:9.75%"></span><span class="seg s3" style="--w:8.25%"></span><span class="seg s4" style="--w:15.5%"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="label"><b>Phi-3.5-mini</b><span>rank 32 · counted 3.06 GB</span></div>
+      <div class="bar">
+        <span class="seg s1" style="--w:22.6%"></span><span class="seg s2" style="--w:4.9%"></span><span class="seg s3" style="--w:7.5%"></span><span class="seg s4" style="--w:3.25%"></span>
+      </div>
+    </div>
+    <p class="legend"><span><i style="background:var(--seg1)"></i>frozen weights, 4-bit</span><span><i style="background:var(--seg2)"></i>embeddings, 16-bit</span><span><i style="background:var(--seg3)"></i>LoRA training state</span><span><i style="background:var(--seg4)"></i>output logits</span><span><i style="background:var(--seg5)"></i>measured extra (1.7B only)</span></p>
+  </div>
+  <div class="two" style="margin-top:2.5rem">
+    <div class="prose">
+      <p><b>The model is no longer the main cost.</b> In 4-bit, Qwen3-1.7B's 1.4B non-embedding weights take 0.70&nbsp;GB, against about 2.8&nbsp;GB in 16-bit.</p>
+    </div>
+    <div class="prose">
+      <p><b>Vocabulary matters as much as size.</b> Qwen3's 151,936-token vocabulary makes the logits for one 2,048-token sequence 1.24&nbsp;GB. Phi-3.5-mini's vocabulary is a fifth of that, which is why a 3.8B model counts smaller than Qwen3-4B.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2><span class="num">04</span> The pilot run</h2>
+  <div class="case-grid">
+    <table class="data">
+      <thead><tr><th>Stage</th><th>Measured</th></tr></thead>
+      <tr><td>Ingest document 1</td><td class="n">67 chunks · ~12 s</td></tr>
+      <tr><td>Ingest document 2</td><td class="n">220 chunks · ~17 s</td></tr>
+      <tr><td>Training pairs</td><td class="n">134 from 50 chunks</td></tr>
+      <tr><td>Fine-tuning peak</td><td class="n">~5.4 GB of 8 GB</td></tr>
+      <tr><td>Adapter on disk</td><td class="n">14.2 MB</td></tr>
+    </table>
+    <div class="prose">
+      <p>RTX 5060 (8&nbsp;GB), 32&nbsp;GB RAM, everything in Docker on WSL2, Qwen3-1.7B. Training finished with about 2.6&nbsp;GB of the card to spare.</p>
+      <p>The assistant answered in its configured persona, cited its source document, and gave the fixed refusal sentence for questions its documents didn't cover. Those are our own observations from using it, not a measured evaluation.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">What only the full run exposed</h3>
+  <p class="abstract">Every module passed its own tests. These faults appeared only when the whole pipeline ran end to end:</p>
+  <ol class="faults">
+    <li>A sequence-length setting was accepted by the API but silently ignored by the trainer, so runs used a different context length from the one configured.</li>
+    <li>A rule meant to catch identity questions ("who are you?") matched too broadly and sent ordinary questions away from retrieval.</li>
+    <li>A published 4-bit checkpoint of Qwen2.5-3B had incomplete weight files and wouldn't load. We switched to Qwen3-1.7B, which is why the deployed build uses it.</li>
+  </ol>
+</section>
+
+<section class="wrap">
+  <h2><span class="num">05</span> What it doesn't show yet</h2>
+  <ul class="limits abstract">
+    <li><b>No controlled quality evaluation.</b> We haven't compared the base model, retrieval alone, fine-tuning alone, both together, and a large hosted model on held-out questions. This is the next piece of work.</li>
+    <li><b>No user study.</b> The "no code" claim rests on the interface design, not on tests with teachers or office staff.</li>
+    <li><b>Training data leaves the machine.</b> Training questions come from a hosted 70B model.</li>
+    <li><b>One pilot, one card.</b> The 4B settings ran during model selection, but their peak memory wasn't recorded.</li>
+    <li><b>English only, no OCR.</b> That matters for Urdu and mixed-language documents, which is the setting I care about most.</li>
+  </ul>
+</section>
+
+<section class="contact wrap">
+  <h2>Interested?</h2>
+  <p class="lead">I'm applying for master's programmes starting in 2027 and would like to keep working on efficient language models and honest evaluation. If that overlaps with your group, I'd be glad to send the draft.</p>
+  <p class="links big"><a href="mailto:umairalih6@gmail.com">umairalih6@gmail.com</a><a href="https://github.com/UH-ALI/SLM-Studio">Code</a></p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <span>Hafiz Muhammad Umair Ali · Karachi</span>
+  <span class="mono dim">Updated November 2026</span>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
